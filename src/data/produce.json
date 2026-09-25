@@ -1,1 +1,250 @@
-[]
+[
+  {
+    "id": "tomatoes",
+    "name": "Tomatoes",
+    "category": "vegetables",
+    "season": [1, 2, 3, 4, 9, 10, 11],
+    "description": "Juicy, rich and full of flavour. The base of every stew, sauce and fresh salad.",
+    "markets": [
+      "mile12",
+      "ogba-green",
+      "ajah-coastal",
+      "surulere",
+      "ikeja-city",
+      "epe-fish"
+    ],
+    "image": "tomatoes"
+  },
+  {
+    "id": "peppers",
+    "name": "Peppers",
+    "category": "vegetables",
+    "season": [1, 2, 3, 4, 11, 12],
+    "description": "Ata rodo, tatashe and bell peppers. Heat and colour for every pot.",
+    "markets": [
+      "mile12",
+      "ajah-coastal",
+      "surulere",
+      "ikeja-city",
+      "oyingbo",
+      "epe-fish"
+    ],
+    "image": "peppers"
+  },
+  {
+    "id": "onions",
+    "name": "Onions",
+    "category": "vegetables",
+    "season": [1, 2, 3, 4, 11, 12],
+    "description": "Sharp purple onions from the north. Cheapest in the dry season when the trucks arrive.",
+    "markets": ["mile12", "surulere", "ikeja-city", "oyingbo", "epe-fish"],
+    "image": "onions"
+  },
+  {
+    "id": "ugu",
+    "name": "Ugu",
+    "category": "vegetables",
+    "season": [5, 6, 7, 8, 9],
+    "description": "Fluted pumpkin leaves, nutritious and versatile. Perfect for soups and stews.",
+    "markets": ["mile12", "ogba-green", "oyingbo"],
+    "image": "ugu"
+  },
+  {
+    "id": "ewedu",
+    "name": "Ewedu",
+    "category": "vegetables",
+    "season": [5, 6, 7, 8, 9],
+    "description": "Jute leaves known for their smooth texture. A staple of Yoruba cooking.",
+    "markets": ["ogba-green", "epe-fish"],
+    "image": "ewedu"
+  },
+  {
+    "id": "okra",
+    "name": "Okra",
+    "category": "vegetables",
+    "season": [5, 6, 7, 8, 9],
+    "description": "Crisp green pods, great for soups, stews and stir fries.",
+    "markets": ["ogba-green", "ajah-coastal", "epe-fish"],
+    "image": "okra"
+  },
+  {
+    "id": "spinach",
+    "name": "Spinach",
+    "category": "vegetables",
+    "season": [6, 7, 8, 9, 10],
+    "description": "Packed with vitamins and minerals. Good for soups, stews and smoothies.",
+    "markets": ["ogba-green", "surulere"],
+    "image": "spinach"
+  },
+  {
+    "id": "carrots",
+    "name": "Carrots",
+    "category": "vegetables",
+    "season": [1, 2, 3, 11, 12],
+    "description": "Crisp, sweet and full of vitamins. Great for salads, stews and snacks.",
+    "markets": ["lekki-fresh"],
+    "image": "carrots"
+  },
+  {
+    "id": "garden-eggs",
+    "name": "Garden Eggs",
+    "category": "vegetables",
+    "season": [6, 7, 8, 9, 10],
+    "description": "Mild, tender and delicious. Great in stews and sauces or eaten fresh with groundnut.",
+    "markets": ["mile12", "ogba-green"],
+    "image": "garden-eggs"
+  },
+  {
+    "id": "cucumber",
+    "name": "Cucumber",
+    "category": "vegetables",
+    "season": [4, 5, 6, 7, 8],
+    "description": "Cool and crunchy. Slice it for salads or eat it on its own on a hot day.",
+    "markets": ["lekki-fresh", "ajah-coastal"],
+    "image": "cucumber"
+  },
+  {
+    "id": "mango",
+    "name": "Mango",
+    "category": "fruits",
+    "season": [3, 4, 5, 6],
+    "description": "Sweet, juicy and perfectly ripe. A true taste of Lagos sunshine.",
+    "markets": ["lekki-fresh"],
+    "image": "mango"
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "category": "fruits",
+    "season": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "description": "Sweet and filling, available all year round. The easiest snack in the market.",
+    "markets": ["ajah-coastal", "surulere"],
+    "image": "banana"
+  },
+  {
+    "id": "plantain",
+    "name": "Plantain",
+    "category": "fruits",
+    "season": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "description": "Green for boiling, yellow for frying. Always in the market, best from August to December.",
+    "markets": ["mile12", "ajah-coastal", "oyingbo", "epe-fish"],
+    "image": "plantain"
+  },
+  {
+    "id": "pineapple",
+    "name": "Pineapple",
+    "category": "fruits",
+    "season": [3, 4, 5, 6, 7],
+    "description": "Golden and fragrant. Sweetest in the middle of the year.",
+    "markets": ["lekki-fresh"],
+    "image": "pineapple"
+  },
+  {
+    "id": "watermelon",
+    "name": "Watermelon",
+    "category": "fruits",
+    "season": [1, 2, 3, 4, 11, 12],
+    "description": "Cool, sweet and refreshing. The dry season favourite.",
+    "markets": ["lekki-fresh", "ajah-coastal"],
+    "image": "watermelon"
+  },
+  {
+    "id": "pawpaw",
+    "name": "Pawpaw",
+    "category": "fruits",
+    "season": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "description": "Soft orange papaya, good for breakfast and easy on the stomach. Available all year.",
+    "markets": ["ikeja-city"],
+    "image": "pawpaw"
+  },
+  {
+    "id": "oranges",
+    "name": "Oranges",
+    "category": "fruits",
+    "season": [1, 2, 10, 11, 12],
+    "description": "Sweet and juicy. Cheapest and best from October to February.",
+    "markets": ["lekki-fresh", "ikeja-city"],
+    "image": "oranges"
+  },
+  {
+    "id": "yam",
+    "name": "Yam",
+    "category": "grains-tubers",
+    "season": [8, 9, 10, 11, 12],
+    "description": "The king of tubers. New yam arrives in August and the markets fill up till December.",
+    "markets": ["mile12", "ikeja-city", "oyingbo"],
+    "image": "yam"
+  },
+  {
+    "id": "sweet-corn",
+    "name": "Sweet Corn",
+    "category": "grains-tubers",
+    "season": [6, 7, 8, 9],
+    "description": "Crisp, sweet and full of goodness. Boil it or roast it by the roadside.",
+    "markets": ["mile12", "epe-fish"],
+    "image": "sweet-corn"
+  },
+  {
+    "id": "beans",
+    "name": "Beans",
+    "category": "grains-tubers",
+    "season": [1, 10, 11, 12],
+    "description": "Honey beans and brown beans for moi moi, akara and ewa. Fresh harvest from October.",
+    "markets": ["surulere", "ikeja-city", "oyingbo"],
+    "image": "beans"
+  },
+  {
+    "id": "sweet-potato",
+    "name": "Sweet Potato",
+    "category": "grains-tubers",
+    "season": [8, 9, 10, 11],
+    "description": "Sweet, filling and cheap. Boil, roast or fry it.",
+    "markets": ["surulere", "oyingbo"],
+    "image": "sweet-potato"
+  },
+  {
+    "id": "scent-leaf",
+    "name": "Scent Leaf",
+    "category": "herbs-spices",
+    "season": [4, 5, 6, 7, 8, 9, 10],
+    "description": "Efirin, the fragrant leaf that finishes pepper soup and jollof. Freshest in the rainy season.",
+    "markets": ["ogba-green"],
+    "image": "scent-leaf"
+  },
+  {
+    "id": "ginger",
+    "name": "Ginger",
+    "category": "herbs-spices",
+    "season": [1, 10, 11, 12],
+    "description": "Fresh root with a warm kick. For tea, stews and marinades.",
+    "markets": ["surulere", "ikeja-city"],
+    "image": "ginger"
+  },
+  {
+    "id": "fresh-eggs",
+    "name": "Fresh Eggs",
+    "category": "dairy-protein",
+    "season": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "description": "Farm eggs sold by the crate, available all year.",
+    "markets": ["lekki-fresh", "ogba-green"],
+    "image": "fresh-eggs"
+  },
+  {
+    "id": "honey",
+    "name": "Honey",
+    "category": "dairy-protein",
+    "season": [1, 2, 3, 11, 12],
+    "description": "Raw local honey straight from small farms. Harvested in the dry season.",
+    "markets": ["lekki-fresh"],
+    "image": "honey"
+  },
+  {
+    "id": "smoked-fish",
+    "name": "Smoked Fish",
+    "category": "dairy-protein",
+    "season": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "description": "Catfish and mackerel smoked the traditional way. The soul of every good soup.",
+    "markets": ["ajah-coastal", "oyingbo", "epe-fish"],
+    "image": "smoked-fish"
+  }
+]

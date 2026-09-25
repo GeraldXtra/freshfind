@@ -1,1 +1,250 @@
-[]
+[
+  {
+    "id": "mile12",
+    "name": "Mile 12 Farmers Market",
+    "area": "Ketu",
+    "address": "Mile 12, Ikorodu Road, Ketu, Lagos",
+    "lat": 6.605,
+    "lng": 3.395,
+    "description": "The biggest produce hub in Lagos, with bulk tomatoes, peppers, yam and greens straight from the north.",
+    "about": "Mile 12 is where most of the fresh produce in Lagos arrives first. Trucks from the north unload tomatoes, peppers, onions and yam before dawn, and traders from every part of the city come here to buy in bulk. It is loud and busy, but nowhere beats it on price when you buy in quantity.",
+    "image": "mile12",
+    "schedule": {
+      "mon": { "open": "06:00", "close": "16:00" },
+      "tue": { "open": "06:00", "close": "16:00" },
+      "wed": { "open": "06:00", "close": "16:00" },
+      "thu": { "open": "06:00", "close": "16:00" },
+      "fri": { "open": "06:00", "close": "16:00" },
+      "sat": { "open": "06:00", "close": "16:00" },
+      "sun": null
+    },
+    "produce": [
+      "tomatoes",
+      "peppers",
+      "yam",
+      "ugu",
+      "onions",
+      "plantain",
+      "sweet-corn",
+      "garden-eggs"
+    ],
+    "featured": true
+  },
+  {
+    "id": "lekki-fresh",
+    "name": "Lekki Fresh Market",
+    "area": "Lekki Phase 1",
+    "address": "Admiralty Way, Lekki Phase 1, Lagos",
+    "lat": 6.447,
+    "lng": 3.475,
+    "description": "A neat weekend market known for fruits, organic vegetables, fresh eggs and local honey from small farms.",
+    "about": "Lekki Fresh runs only on weekends and feels calmer than the big city markets. Small farms and family growers bring fruit, salad vegetables, eggs and honey, and most stalls will tell you exactly where the produce came from. Come early on Saturday for the best selection.",
+    "image": "lekki-fresh",
+    "schedule": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": { "open": "07:00", "close": "14:00" },
+      "sun": { "open": "07:00", "close": "14:00" }
+    },
+    "produce": [
+      "mango",
+      "pineapple",
+      "watermelon",
+      "oranges",
+      "cucumber",
+      "carrots",
+      "honey",
+      "fresh-eggs"
+    ],
+    "featured": true
+  },
+  {
+    "id": "ogba-green",
+    "name": "Ogba Green Market",
+    "area": "Ogba",
+    "address": "Ogba Market Road, Ogba, Lagos",
+    "lat": 6.627,
+    "lng": 3.343,
+    "description": "A friendly neighbourhood market with the freshest leafy greens, ugu, ewedu, scent leaf and farm eggs.",
+    "about": "Ogba Green is a small community market that specialises in leafy vegetables. Farmers from the outskirts of Lagos bring ugu, ewedu, spinach and scent leaf cut the same morning, so the bundles are still crisp by the time you get home. It is the place to go for soup ingredients.",
+    "image": "ogba-green",
+    "schedule": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": { "open": "08:00", "close": "16:00" },
+      "fri": null,
+      "sat": { "open": "08:00", "close": "16:00" },
+      "sun": null
+    },
+    "produce": [
+      "ugu",
+      "ewedu",
+      "spinach",
+      "scent-leaf",
+      "okra",
+      "garden-eggs",
+      "fresh-eggs",
+      "tomatoes"
+    ],
+    "featured": true
+  },
+  {
+    "id": "ajah-coastal",
+    "name": "Ajah Coastal Market",
+    "area": "Ajah",
+    "address": "Lekki Epe Expressway, Ajah, Lagos",
+    "lat": 6.467,
+    "lng": 3.573,
+    "description": "Fresh fish, smoked fish and everyday produce from coastal traders, with the lagoon breeze thrown in.",
+    "about": "Ajah Coastal sits close to the water, so fish comes in fresh from the lagoon every morning alongside smoked fish from the villages down the coast. The vegetable stalls cover the basics for a week of cooking, and prices are friendlier than the Island markets nearby.",
+    "image": "ajah-coastal",
+    "schedule": {
+      "mon": null,
+      "tue": { "open": "07:00", "close": "17:00" },
+      "wed": { "open": "07:00", "close": "17:00" },
+      "thu": { "open": "07:00", "close": "17:00" },
+      "fri": { "open": "07:00", "close": "17:00" },
+      "sat": { "open": "07:00", "close": "17:00" },
+      "sun": { "open": "07:00", "close": "17:00" }
+    },
+    "produce": [
+      "smoked-fish",
+      "tomatoes",
+      "peppers",
+      "okra",
+      "plantain",
+      "watermelon",
+      "cucumber",
+      "banana"
+    ],
+    "featured": true
+  },
+  {
+    "id": "surulere",
+    "name": "Surulere Community Market",
+    "area": "Surulere",
+    "address": "Adeniran Ogunsanya Street, Surulere, Lagos",
+    "lat": 6.5,
+    "lng": 3.355,
+    "description": "A Saturday street market where neighbours buy tomatoes, beans, sweet potato and spices from familiar faces.",
+    "about": "Every Saturday a stretch of Surulere turns into a market. Most traders have sold on the same spot for years and know their customers by name. It is the best place in the area for beans, grains and spices, and the tomato and pepper stalls are reliable all year.",
+    "image": "surulere",
+    "schedule": {
+      "mon": null,
+      "tue": null,
+      "wed": null,
+      "thu": null,
+      "fri": null,
+      "sat": { "open": "08:00", "close": "15:00" },
+      "sun": null
+    },
+    "produce": [
+      "tomatoes",
+      "peppers",
+      "onions",
+      "beans",
+      "sweet-potato",
+      "ginger",
+      "banana",
+      "spinach"
+    ],
+    "featured": false
+  },
+  {
+    "id": "ikeja-city",
+    "name": "Ikeja City Market",
+    "area": "Ikeja",
+    "address": "Awolowo Way, Ikeja, Lagos",
+    "lat": 6.596,
+    "lng": 3.342,
+    "description": "A busy central market open six days a week, with a wide range of produce, grains and fruit under one roof.",
+    "about": "Ikeja City Market is the convenient choice for anyone working or living around the capital of Lagos State. It is a covered market with permanent stalls, so it runs rain or shine. You will find the widest mix here, from yam and beans to pawpaw and oranges, at fair everyday prices.",
+    "image": "ikeja-city",
+    "schedule": {
+      "mon": { "open": "07:00", "close": "18:00" },
+      "tue": { "open": "07:00", "close": "18:00" },
+      "wed": { "open": "07:00", "close": "18:00" },
+      "thu": { "open": "07:00", "close": "18:00" },
+      "fri": { "open": "07:00", "close": "18:00" },
+      "sat": { "open": "07:00", "close": "18:00" },
+      "sun": null
+    },
+    "produce": [
+      "tomatoes",
+      "peppers",
+      "onions",
+      "yam",
+      "beans",
+      "ginger",
+      "oranges",
+      "pawpaw"
+    ],
+    "featured": false
+  },
+  {
+    "id": "oyingbo",
+    "name": "Oyingbo Market",
+    "area": "Ebute Metta",
+    "address": "Murtala Muhammed Way, Ebute Metta, Lagos",
+    "lat": 6.478,
+    "lng": 3.383,
+    "description": "One of the oldest markets in Lagos, famous for yam, plantain and tubers sold by the heap.",
+    "about": "Oyingbo has been trading for generations and still keeps the old rhythm, with tubers stacked high on wooden platforms and traders calling out prices. It is the market to visit for yam, plantain, sweet potato and beans in large quantities, and the smoked fish section near the back is worth the walk.",
+    "image": "oyingbo",
+    "schedule": {
+      "mon": { "open": "06:00", "close": "17:00" },
+      "tue": { "open": "06:00", "close": "17:00" },
+      "wed": { "open": "06:00", "close": "17:00" },
+      "thu": { "open": "06:00", "close": "17:00" },
+      "fri": { "open": "06:00", "close": "17:00" },
+      "sat": { "open": "06:00", "close": "17:00" },
+      "sun": null
+    },
+    "produce": [
+      "yam",
+      "plantain",
+      "sweet-potato",
+      "beans",
+      "onions",
+      "peppers",
+      "ugu",
+      "smoked-fish"
+    ],
+    "featured": false
+  },
+  {
+    "id": "epe-fish",
+    "name": "Epe Fish Market",
+    "area": "Epe",
+    "address": "Epe Waterside, Epe, Lagos",
+    "lat": 6.584,
+    "lng": 3.983,
+    "description": "A riverside market where canoes land the morning catch, plus fresh vegetables from the surrounding farms.",
+    "about": "Epe Fish Market starts at first light when the canoes come in from the lagoon. Fresh and smoked fish are the main attraction, but the farms around Epe also supply tomatoes, peppers, okra and corn, so you can do a full shop in one trip. It winds down by early afternoon, so go early.",
+    "image": "epe-fish",
+    "schedule": {
+      "mon": { "open": "06:00", "close": "13:00" },
+      "tue": { "open": "06:00", "close": "13:00" },
+      "wed": { "open": "06:00", "close": "13:00" },
+      "thu": { "open": "06:00", "close": "13:00" },
+      "fri": { "open": "06:00", "close": "13:00" },
+      "sat": { "open": "06:00", "close": "13:00" },
+      "sun": { "open": "06:00", "close": "13:00" }
+    },
+    "produce": [
+      "smoked-fish",
+      "tomatoes",
+      "peppers",
+      "okra",
+      "onions",
+      "ewedu",
+      "sweet-corn",
+      "plantain"
+    ],
+    "featured": false
+  }
+]

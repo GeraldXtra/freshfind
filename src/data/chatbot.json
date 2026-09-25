@@ -1,1 +1,326 @@
-[]
+{
+  "greeting": "Hi! I'm the Fresh Assistant. I can help you find markets, opening hours and what's in season. What do you need?",
+  "quickReplies": [
+    "What's in season?",
+    "Markets near me",
+    "Which markets are open now?",
+    "Where can I buy tomatoes?"
+  ],
+  "fallback": "I didn't catch that. Try asking about a market, a produce item, opening days, or what's in season.",
+  "fallbackQuickReplies": [
+    "What's in season?",
+    "Which markets are open now?",
+    "Opening hours",
+    "Help"
+  ],
+  "placeholders": {
+    "{month}": "the current month name",
+    "{produce}": "a list of produce names in season this month",
+    "{markets}": "a list of market names with their hours",
+    "{day}": "the day the visitor asked about",
+    "{marketName}": "the matched market's name",
+    "{area}": "the matched market's area",
+    "{hours}": "the matched market's opening days and hours",
+    "{marketProduce}": "the matched market's typical produce",
+    "{produceName}": "the matched produce item's name",
+    "{season}": "the matched produce item's season months",
+    "{foundAt}": "markets where the matched produce item is sold",
+    "{nextMarket}": "the next market to open",
+    "{nextTime}": "when that market opens"
+  },
+  "entities": {
+    "markets": {
+      "mile12": ["mile 12", "mile12", "ketu"],
+      "lekki-fresh": ["lekki", "lekki fresh"],
+      "ogba-green": ["ogba"],
+      "ajah-coastal": ["ajah", "coastal"],
+      "surulere": ["surulere"],
+      "ikeja-city": ["ikeja"],
+      "oyingbo": ["oyingbo", "ebute metta"],
+      "epe-fish": ["epe"]
+    },
+    "produce": {
+      "tomatoes": ["tomato", "tomatoes"],
+      "peppers": ["pepper", "peppers", "ata rodo", "tatashe"],
+      "onions": ["onion", "onions"],
+      "ugu": ["ugu", "pumpkin leaves"],
+      "ewedu": ["ewedu", "jute"],
+      "okra": ["okra", "okro"],
+      "spinach": ["spinach"],
+      "carrots": ["carrot", "carrots"],
+      "garden-eggs": ["garden egg", "garden eggs"],
+      "cucumber": ["cucumber", "cucumbers"],
+      "mango": ["mango", "mangoes"],
+      "banana": ["banana", "bananas"],
+      "plantain": ["plantain", "plantains"],
+      "pineapple": ["pineapple", "pineapples"],
+      "watermelon": ["watermelon", "water melon"],
+      "pawpaw": ["pawpaw", "papaya"],
+      "oranges": ["orange", "oranges"],
+      "yam": ["yam", "yams"],
+      "sweet-corn": ["corn", "sweet corn", "maize"],
+      "beans": ["beans", "honey beans"],
+      "sweet-potato": ["sweet potato", "sweet potatoes"],
+      "scent-leaf": ["scent leaf", "efirin", "basil"],
+      "ginger": ["ginger"],
+      "fresh-eggs": ["egg", "eggs"],
+      "honey": ["honey"],
+      "smoked-fish": ["fish", "smoked fish", "catfish"]
+    },
+    "days": {
+      "mon": ["monday", "mondays"],
+      "tue": ["tuesday", "tuesdays"],
+      "wed": ["wednesday", "wednesdays"],
+      "thu": ["thursday", "thursdays"],
+      "fri": ["friday", "fridays"],
+      "sat": ["saturday", "saturdays"],
+      "sun": ["sunday", "sundays"],
+      "weekend": ["weekend", "weekends"],
+      "today": ["today", "tonight"],
+      "tomorrow": ["tomorrow"]
+    }
+  },
+  "intents": [
+    {
+      "id": "hello",
+      "keywords": [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening"
+      ],
+      "answer": "Hello! Ask me about any market, what's in season, or where to buy something.",
+      "quickReplies": [
+        "What's in season?",
+        "Markets near me",
+        "Which markets are open now?"
+      ]
+    },
+    {
+      "id": "help",
+      "keywords": ["help", "what can you do", "how does this work", "options"],
+      "answer": "I can tell you which markets are open now or on any day, find markets near you, show what's in season, and tell you where to buy a produce item. Just ask in your own words.",
+      "quickReplies": [
+        "Which markets are open now?",
+        "What's in season?",
+        "Where can I buy yam?"
+      ]
+    },
+    {
+      "id": "about",
+      "keywords": [
+        "what is freshfind",
+        "about freshfind",
+        "who are you",
+        "what is this site",
+        "what is this"
+      ],
+      "answer": "FreshFind helps people in Lagos discover farmers markets, with real opening days and hours and what produce is in season each week. Everything runs in your browser, nothing is saved online.",
+      "link": { "label": "About FreshFind", "to": "/about" }
+    },
+    {
+      "id": "seasonal",
+      "action": "seasonal",
+      "keywords": [
+        "in season",
+        "season",
+        "fresh now",
+        "what's fresh",
+        "whats fresh",
+        "fresh this week",
+        "seasonal"
+      ],
+      "answer": "Right now in {month} these are in season: {produce}. Seasonal Picks shows where to buy each one.",
+      "link": { "label": "See Seasonal Picks", "to": "/seasonal" }
+    },
+    {
+      "id": "open-now",
+      "action": "open-now",
+      "keywords": [
+        "open now",
+        "open right now",
+        "currently open",
+        "still open",
+        "open at the moment",
+        "open today"
+      ],
+      "answer": "These markets are open right now: {markets}.",
+      "noResults": "No market is open at this moment. The next one to open is {nextMarket} at {nextTime}.",
+      "link": { "label": "View open markets", "to": "/directory" }
+    },
+    {
+      "id": "open-day",
+      "action": "open-day",
+      "keywords": [
+        "open on",
+        "which markets are open",
+        "markets open",
+        "open this"
+      ],
+      "answer": "Markets open on {day}: {markets}.",
+      "noResults": "No market in our list opens on {day}. Try the weekend, most markets run on Saturday.",
+      "link": { "label": "See the full directory", "to": "/directory" }
+    },
+    {
+      "id": "near-me",
+      "action": "near-me",
+      "keywords": [
+        "near me",
+        "nearby",
+        "closest",
+        "nearest",
+        "around me",
+        "close to me",
+        "in my area"
+      ],
+      "answer": "The closest markets to you are {markets}.",
+      "noResults": "Allow location access in your browser and I will find the markets closest to you. You can also filter the directory by area.",
+      "link": { "label": "Browse by area", "to": "/directory" }
+    },
+    {
+      "id": "market-info",
+      "action": "market-info",
+      "keywords": [],
+      "answer": "{marketName} is in {area} and opens {hours}. You will usually find {marketProduce} there.",
+      "link": { "label": "View {marketName}", "to": "/market/{marketId}" }
+    },
+    {
+      "id": "produce-info",
+      "action": "produce-info",
+      "keywords": [
+        "where can i buy",
+        "where to buy",
+        "who sells",
+        "which market sells",
+        "buy"
+      ],
+      "answer": "{produceName} is in season {season}. You can find it at {foundAt}.",
+      "link": { "label": "Open the Produce Guide", "to": "/produce" }
+    },
+    {
+      "id": "hours",
+      "keywords": [
+        "opening hours",
+        "hours",
+        "what time",
+        "when does",
+        "when do",
+        "open time",
+        "closing time"
+      ],
+      "answer": "Tell me which market and I will give you its days and hours. Here are a few to pick from.",
+      "quickReplies": [
+        "Mile 12 hours",
+        "Lekki Fresh hours",
+        "Ogba Green hours",
+        "Ajah Coastal hours"
+      ]
+    },
+    {
+      "id": "cheapest",
+      "keywords": [
+        "cheap",
+        "cheapest",
+        "bulk",
+        "wholesale",
+        "price",
+        "prices",
+        "affordable"
+      ],
+      "answer": "For bulk buying and the lowest prices, Mile 12 in Ketu is the biggest wholesale market in Lagos. Neighbourhood markets like Ogba Green are best for small fresh quantities.",
+      "link": { "label": "View Mile 12", "to": "/market/mile12" }
+    },
+    {
+      "id": "bookmarks",
+      "keywords": [
+        "bookmark",
+        "bookmarks",
+        "save",
+        "saved",
+        "favourite",
+        "favorite",
+        "favourites",
+        "favorites"
+      ],
+      "answer": "Tap the bookmark icon on any market or produce card to save it. Your saved items and notes live in the Bookmarks page for this browser session and clear when you close the tab.",
+      "link": { "label": "Open Bookmarks", "to": "/bookmarks" }
+    },
+    {
+      "id": "export",
+      "keywords": ["export", "share", "download list", "send list", "print"],
+      "answer": "On the Bookmarks page you can export your saved markets and produce as a text list, or share them through WhatsApp, X or Facebook.",
+      "link": { "label": "Open Bookmarks", "to": "/bookmarks" }
+    },
+    {
+      "id": "directions",
+      "keywords": [
+        "directions",
+        "how do i get",
+        "how to get",
+        "map",
+        "location",
+        "address",
+        "where is"
+      ],
+      "answer": "Open any market page to see its address and map, then tap Get Directions to open the route in Google Maps.",
+      "link": { "label": "Find a market", "to": "/directory" }
+    },
+    {
+      "id": "contact",
+      "keywords": [
+        "contact",
+        "email",
+        "phone",
+        "call",
+        "reach you",
+        "suggest a market",
+        "add a market"
+      ],
+      "answer": "You can reach the FreshFind team at hello@freshfind.ng or +234 803 555 0123. If a market is missing, tell us and we will add it.",
+      "link": { "label": "Contact Us", "to": "/contact" }
+    },
+    {
+      "id": "account",
+      "keywords": [
+        "login",
+        "log in",
+        "sign up",
+        "signup",
+        "register",
+        "account",
+        "password"
+      ],
+      "answer": "You don't need an account. FreshFind works fully without signing in, and nothing you do is stored on a server.",
+      "link": { "label": "Start exploring", "to": "/directory" }
+    },
+    {
+      "id": "produce-guide",
+      "keywords": [
+        "produce guide",
+        "what can i buy",
+        "categories",
+        "fruits",
+        "vegetables",
+        "herbs",
+        "grains",
+        "tubers",
+        "dairy"
+      ],
+      "answer": "The Produce Guide lists everything sold across our markets by category: fruits, vegetables, herbs and spices, grains and tubers, and dairy and protein, each with its season and where to find it.",
+      "link": { "label": "Open the Produce Guide", "to": "/produce" }
+    },
+    {
+      "id": "thanks",
+      "keywords": ["thank", "thanks", "thank you", "appreciate"],
+      "answer": "You're welcome! Enjoy your market trip.",
+      "quickReplies": ["What's in season?", "Markets near me"]
+    },
+    {
+      "id": "bye",
+      "keywords": ["bye", "goodbye", "see you", "later"],
+      "answer": "Bye for now. Fresh all along!"
+    }
+  ]
+}
