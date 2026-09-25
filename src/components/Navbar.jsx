@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import SearchOverlay from './SearchOverlay'
+import { useBookmarks } from '../context/BookmarksContext'
 import logo from '../assets/images/brand/logo.png'
 import '../styles/navbar.css'
 
@@ -87,6 +88,7 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
+  const { count } = useBookmarks()
 
   const openSearch = useCallback(() => setSearchOpen(true), [])
   const closeSearch = useCallback(() => setSearchOpen(false), [])
@@ -140,7 +142,7 @@ export default function Navbar() {
 
               <Link to="/bookmarks" className="navbar-icon-btn" aria-label="Bookmarks">
                 <BookmarkIcon />
-                <span className="navbar-badge">0</span>
+                {count > 0 && <span className="navbar-badge">{count}</span>}
               </Link>
             </div>
 

@@ -1,30 +1,53 @@
 # How FreshFind Works
 
-This is the plan for the whole project. Read it once before you write any code and things will make sense.
-
 ## What we are building
 A website that helps people in Lagos find farmers markets. Where each market is, the days and hours it opens, and what produce is in season. It is our entry for TechWiz 7 and the judges will mark us against the SRS document, so every feature in that document must exist and work.
 
-## How the app is put together
-The site is built with React using Vite. It is a single page application. That means the browser loads once and React Router swaps the pages in and out without reloading. The pages live in src/pages and there are nine of them plus a not found page. Every page renders inside the same frame. Navbar on top, footer at the bottom, and the floating chatbot button in the corner. Those shared parts live in src/components and only Gerald touches them.
+## The frame
+The site is built with React using Vite. It is a single page application, so the browser loads once and React Router swaps pages in and out without reloading. App.jsx sets up the router, wraps everything in the BookmarksProvider, and renders the Navbar, the page area, the ChatbotWidget and the Footer. Every page renders inside that frame. Nine pages live in src/pages plus a Not Found page.
 
-Styling comes from one place, src/styles/theme.css. It holds our colors, fonts, spacing and corner sizes as variables. The THEME_GUIDE file in this folder explains each one. No raw hex codes inside pages, ever.
+At phone widths the Navbar collapses into a menu and the Footer stacks into one column, so responsiveness of the frame is handled once for everyone. Each page handles the responsiveness of its own content.
+
+## Styling
+One theme file, src/styles/theme.css, holds every color, font, spacing and radius as a variable. The Navbar and Footer have their own CSS files and each page has one CSS file in src/styles. No raw hex codes inside pages. The THEME_GUIDE explains every variable.
 
 ## The data is the center
-There is no backend and no database. Our database is three JSON files inside src/data. markets.json holds every market. produce.json holds every produce item and its season. chatbot.json holds the questions and answers the assistant knows. Every page reads from these files and displays what it finds. Nothing is ever written back and nothing is sent to a server. That is a rule from the SRS, not a choice. Bookmarks and notes live inside the browser session only, so they disappear when the tab closes, and that is correct behaviour.
+There is no backend and no database. The database is three JSON files in src/data. markets.json has one record per market. produce.json has one record per produce item with its season and the markets that sell it. chatbot.json has the greeting, the fallback, the entities the assistant recognises and every answer it can give. Pages import the files directly and read them. Nothing is ever written back and nothing is sent to a server. The DATA_GUIDE explains every field.
 
-Only Gerald edits the JSON files. If your page needs a field that does not exist, ask and it gets added properly so nobody breaks anyone else.
+## Shared helpers
+src/utils holds small pure functions so logic is written once:
+- schedule.js turns a market schedule into an hours line, an open now check, a next opening time and a badge.
+- season.js turns a season month list into a label and checks what is in season now.
+- geo.js measures distance between two coordinates.
+- images.js builds image paths from the names stored in the JSON files.
+- links.js builds map embed, directions and share links.
 
-## The small helpers
-There are hooks in src/hooks. useClock gives you the current time ticking every second. useGeolocation asks the browser for the user location after the user allows it. useBookmarks will manage saving and removing bookmarks for the session. Use them instead of writing your own timers or location code.
+## Hooks
+- useClock gives the current time, ticking every second. It powers the live clock in the footer, the open now badges and the season checks.
+- useGeolocation asks the browser for the visitor's position only after the visitor presses a button, and reports idle, loading, granted, denied or unsupported. It powers sort by distance, markets near you and the Contact page map.
+- useBookmarks comes from the BookmarksContext and gives every component the same saved list.
 
-## The order we build in
-1. Gerald fills the three JSON files with real sample data. Everyone is blocked until this is done, so it happens first.
-2. Everyone builds their two pages from the mockups in design/mockups, reading from the JSON files.
-3. Gerald builds the chatbot logic, the bookmarks system and the search.
-4. We wire the extras. Markets open right now using the clock and location, and the chatbot linking to market and produce pages.
-5. Polish. Mobile widths, hover effects, animations, accessibility.
-6. Testing with Lighthouse, then diagrams, the report, and the demo video.
+## Open now
+Every market schedule stores each day as open and close times in 24 hour format, or null when closed. isOpenNow compares the current day and time from useClock with today's entry. openBadge returns OPEN NOW or when the market next opens. Because the data is real times and not text, the same function works for every market and every page.
+
+## Bookmarks
+Saved markets, saved produce and notes live in the browser's sessionStorage under one key. The BookmarksContext loads them on start, updates them on every change and shares them with the Navbar badge, every card's bookmark button and the Bookmarks page. Closing the tab clears them. That is exactly what the brief asks for: session only notes and no server storage.
+
+## Chatbot
+The assistant is a rule engine, not a live AI. When the visitor sends text or taps a chip:
+1. The text is lowercased and trimmed.
+2. Entities are searched first: any market name, produce name or day word from chatbot.json.
+3. A market mention answers with the market info template filled from markets.json. A produce mention answers with the produce info template filled from produce.json.
+4. Otherwise every intent is scored by how many of its keywords appear in the text and the best one wins. Intents with an action compute their answer from the data files, for example the markets open on Saturday. Other intents return their answer exactly as written.
+5. If an action finds nothing it returns its noResults text. If nothing matches, the fallback is shown.
+6. Answers can carry a link button to a page and their own quick reply chips.
+Every sentence the assistant can say is written in chatbot.json. Placeholders only pull facts from the other two files.
+
+## Search
+The search icon opens the overlay. Typing and pressing Enter goes to the Directory with q set to the text. The Directory filters names and areas by that text.
+
+## Routing
+/ Home, /directory, /market/:id, /produce, /seasonal, /bookmarks, /contact, /about, and anything else shows Not Found. The Vite base is /freshfind/ so the site can live on GitHub Pages.
 
 ## What we are achieving
-When we submit, a judge should be able to open the site, find a market, check its hours, browse produce, ask the assistant a question, bookmark things and export the list, all without anything breaking. And when they ask any of us why the code looks the way it does, we can answer, because we wrote it. That last part matters. The rules say judges can question us on our own work, so do not paste in code you cannot explain.
+A judge should be able to open the site, find a market, check its hours, browse produce, ask the assistant a question, bookmark things and export the list, on a laptop or a phone, without anything breaking. And when asked why the code looks the way it does, any of us can answer.

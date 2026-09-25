@@ -46,3 +46,10 @@ Use the spacing scale for every margin, padding and gap. Never invent your own n
 - .card is the standard card. It already has the hover lift built in, so use it for market cards and produce cards.
 
 If you need a color or a size that does not exist here, do not create it inside your page. Tell Gerald and we add it to the theme so everyone gets it.
+
+## Type scale
+- --text-xs 12px for captions and the footer bottom bar.
+- --text-sm 14px for links, badges and meta lines.
+- --text-base 15px for body text.
+- --text-lg 17px for card titles.
+- --text-xl 20px, --text-2xl 26px and --text-3xl 34px for headings.

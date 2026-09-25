@@ -1,1 +1,14 @@
 # Decision Log
+- 2026-09-24: Chose React with Vite over plain HTML or Angular. Reason: a component structure fits nine pages sharing one layout, and the brief allows ReactJS.
+- 2026-09-24: Chose the immersive hero design direction, a full width photo with a three field search panel, from several AI generated options.
+- 2026-09-25: Set the sample data to 8 markets instead of the 14 shown in early mockups, so every market is fully detailed and photographed.
+- 2026-09-25: Kept the dummy login button in the navbar because the brief lists it as a required UI feature, while confirming there are no user accounts.
+- 2026-09-25: Bookmarks use session storage, not local storage, to match the brief's session only notes rule.
+- 2026-09-25: Split the team by pages with a shared theme file and one data owner, so all pages look consistent and nobody edits the same file at once.
+- 2026-09-25: Regenerated all market photos with different angles, times of day and settings after noticing the first batch looked identical.
+- 2026-09-25: The shared layout gets a collapsible menu at phone widths so every page meets the responsive requirement without each member handling the navbar.
+- 2026-09-25: Images are kept as png during development and will be converted to WebP in one pass before the Lighthouse tests.
+- 2026-09-25: Schedules are stored as real open and close times per day so open now, next opening and the weekly table all come from one function each.
+- 2026-09-25: Produce seasons are stored as month numbers so badges, the calendar and this week's picks are computed and stay correct in any month.
+- 2026-09-25: The chatbot uses pre written answer templates with placeholders filled from the data files, so it can answer real questions while staying fully rule based as the brief requires.
+- 2026-09-25: Shared helpers and one bookmark button component were added so every card on the site behaves the same way.

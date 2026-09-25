@@ -1,0 +1,41 @@
+.bookmark-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-green-900);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+}
+
+.bookmark-button:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-float);
+}
+
+.bookmark-button:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+.bookmark-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: fill 0.2s ease;
+}
+
+.bookmark-button.is-saved svg {
+  fill: var(--color-green-900);
+}
