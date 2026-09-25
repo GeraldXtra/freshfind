@@ -1,0 +1,91 @@
+@import './styles/theme.css';
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-green-900);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a, button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  max-width: var(--maxw-page);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-amber);
+  color: var(--color-green-900);
+  border: none;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  background-color: transparent;
+  color: var(--color-green-900);
+  border: 1px solid var(--color-green-900);
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-float);
+}
