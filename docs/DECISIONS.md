@@ -12,3 +12,9 @@
 - 2026-09-25: Produce seasons are stored as month numbers so badges, the calendar and this week's picks are computed and stay correct in any month.
 - 2026-09-25: The chatbot uses pre written answer templates with placeholders filled from the data files, so it can answer real questions while staying fully rule based as the brief requires.
 - 2026-09-25: Shared helpers and one bookmark button component were added so every card on the site behaves the same way.
+- 2026-09-25: One shared MarketCard is used on Home, the Directory and Bookmarks so every market card on the site is the same code.
+- 2026-09-25: The Home search panel filters live on the page and also sends the choices to the Directory, so results are shown dynamically as the brief asks and the full directory is one click away.
+- 2026-09-25: Contact was added as a fifth navbar link so judges find it at once, a small departure from the four link mockups.
+- 2026-09-25: The Contact page asks for location as soon as it opens, matching the You are here design, and handles blocked and unsupported browsers with clear messages.
+- 2026-09-25: A global box sizing rule was added to index.css after a full width button overflowed its card, so no page can hit that bug again.
+- 2026-09-25: Spacing tokens, card sizes and page paddings were reduced after checking every page at 100 percent on a laptop screen.
