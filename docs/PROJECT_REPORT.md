@@ -47,7 +47,16 @@ Records join on ids so no fact is typed twice.
 Bookmarks and notes are kept in the browser's session storage. They belong to that browser only and clear when the tab closes. This meets the brief, which allows no server storage and describes notes as session only.
 
 ## Diagrams
-The diagrams are in docs/diagrams as Mermaid files: site map, the user flow for finding a market, the data flow, the chatbot matching flow, the bookmarks flow, the open now logic and the application structure. Exported images of each are included in the submitted report.
+The diagrams are written in Mermaid in docs/diagrams and rendered by GitHub. Exported images of each are in docs/diagrams/png and included below in the submitted report.
+1. Site map: how the pages link to each other and the cross page features.
+2. Flowchart, finding a market: the paths from the home search, the search overlay and the directory to a market detail and a bookmark.
+3. Data Flow Diagram, Level 0: the app as one process with the visitor, the three JSON stores, the browser clock and location, session storage and the map embed.
+4. Data Flow Diagram, Level 1: the six processes (search and filter, market detail, produce and seasons, answering questions, bookmarks, location and maps) and the data each reads and writes.
+5. Data model: how markets, produce, chatbot entities and bookmarks relate through ids.
+6. Flowchart, the assistant: how a question becomes an answer using entities, intents and the data files.
+7. Flowchart, bookmarks: saving, notes, export, share, remove and what happens when the tab closes.
+8. Flowchart, open now and nearby: how the clock and the schedule produce the badges and how location produces distances.
+9. Application structure: the router, the frame, the pages, the shared components, helpers, hooks and data.
 
 ## Test Data Used in the Project
 The sample data and the test scenarios are listed in docs/TEST_DATA.md.
