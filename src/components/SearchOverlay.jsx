@@ -65,7 +65,6 @@ function CloseIcon() {
   )
 }
 
-// Full-screen search overlay. Closes via the X button or the Escape key.
 export default function SearchOverlay({ open, onClose }) {
   useEffect(() => {
     if (!open) return undefined

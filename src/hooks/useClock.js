@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-// Returns the current Date, refreshed every second.
 export default function useClock() {
   const [now, setNow] = useState(() => new Date())
 

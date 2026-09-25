@@ -2,14 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 const STORAGE_KEY = 'ff_visits'
 
-const counterStyle = {
-  fontSize: '0.85rem',
-}
-
-// Simulated visitor counter kept in sessionStorage under 'ff_visits'.
-// First visit in a session seeds a random number between 4000 and 6000,
-// every later mount adds 1.
-export default function VisitorCounter() {
+export default function VisitorCounter({ className }) {
   const [count, setCount] = useState(null)
   const hasRun = useRef(false)
 
@@ -31,5 +24,5 @@ export default function VisitorCounter() {
 
   if (count === null) return null
 
-  return <span style={counterStyle}>Visitors: {count.toLocaleString('en-US')}</span>
+  return <span className={className}>Visitors: {count.toLocaleString('en-US')}</span>
 }

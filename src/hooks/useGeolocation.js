@@ -1,7 +1,5 @@
 import { useCallback, useState } from 'react'
 
-// status: 'idle' | 'loading' | 'granted' | 'denied' | 'unsupported'
-// coords: { lat, lng } once granted, otherwise null
 export default function useGeolocation() {
   const [status, setStatus] = useState('idle')
   const [coords, setCoords] = useState(null)
