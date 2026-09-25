@@ -9,12 +9,14 @@ FreshFind puts it all in one place. You can see every market near you, the exact
 The whole site runs in the browser. No accounts, no servers, nothing to install. Just useful market information that loads fast on any device. We built FreshFind for TechWiz 7, the world tech championship by Aptech, under the eGreen Basket theme.
 
 ## Team
-- Uchechukwu Eberechukwu (Gerald), Team Leader
-- Amanda
-- Ibrahim
-- Osakue
+
+- Eberechukwu Uchechukwu Gerald, Team Leader
+- Chukwujekwu Amanda Chimdiuso
+- Ibrahim Ogunsola Kelvin
+- Osakue Uyi Uhunwa
 
 ## School
-Aptech Computer Education, Nigeria
-Course: Advanced Diploma in Software Engineering (ADSE)
-Semester 2
+
+Aptech Computer Education, Nigeria.
+Course: Advanced Diploma in Software Engineering (ADSE).
+Semester 2.
