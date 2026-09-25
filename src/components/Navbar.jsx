@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import LiveClock from "./LiveClock";
 import SearchOverlay from "./SearchOverlay";
 import logo from "../assets/images/brand/logo.png";
 
@@ -21,34 +20,34 @@ const headerStyle = {
 
 const innerStyle = {
   display: "flex",
-  flexWrap: "wrap",
   alignItems: "center",
-  columnGap: "48px",
-  rowGap: "var(--space-3)",
-  minHeight: "72px",
+  height: "72px",
 };
 
 const logoStyle = {
   display: "inline-flex",
   alignItems: "center",
   gap: "10px",
+  marginRight: "48px",
   fontFamily: "var(--font-display)",
   fontWeight: 700,
-  fontSize: "22px",
+  fontSize: "28px",
+  lineHeight: 1,
   color: "var(--color-green-900)",
   textDecoration: "none",
+  whiteSpace: "nowrap",
 };
 
 const logoImgStyle = {
-  width: "28px",
-  height: "28px",
+  height: "36px",
+  width: "auto",
   objectFit: "contain",
 };
 
 const navListStyle = {
   display: "flex",
-  flexWrap: "wrap",
-  gap: "24px",
+  alignItems: "center",
+  gap: "32px",
   listStyle: "none",
   margin: 0,
   padding: 0,
@@ -56,20 +55,23 @@ const navListStyle = {
 
 const navLinkStyle = ({ isActive }) => ({
   display: "inline-block",
-  padding: "var(--space-2) 0",
-  fontSize: "var(--text-sm)",
+  padding: "8px 0 6px",
+  fontFamily: "var(--font-body)",
+  fontSize: "15px",
   fontWeight: 500,
-  color: isActive ? "var(--color-green-900)" : "var(--color-text)",
+  lineHeight: 1,
+  color: "var(--color-green-900)",
   textDecoration: "none",
+  whiteSpace: "nowrap",
   borderBottom: isActive
-    ? "2px solid var(--color-green-700)"
+    ? "2px solid var(--color-green-900)"
     : "2px solid transparent",
 });
 
 const rightStyle = {
   display: "flex",
   alignItems: "center",
-  gap: "var(--space-3)",
+  gap: "16px",
   marginLeft: "auto",
 };
 
@@ -78,11 +80,11 @@ const iconButtonStyle = {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "40px",
-  height: "40px",
+  width: "24px",
+  height: "24px",
+  padding: 0,
   border: "none",
-  borderRadius: "var(--radius-pill)",
-  background: "var(--color-green-soft)",
+  background: "transparent",
   color: "var(--color-green-900)",
   textDecoration: "none",
   cursor: "pointer",
@@ -90,36 +92,59 @@ const iconButtonStyle = {
 
 const badgeStyle = {
   position: "absolute",
-  top: "-4px",
-  right: "-4px",
-  minWidth: "18px",
+  top: "-7px",
+  right: "-9px",
+  width: "18px",
   height: "18px",
-  padding: "0 var(--space-1)",
   boxSizing: "border-box",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
   borderRadius: "var(--radius-pill)",
-  background: "var(--color-amber)",
-  color: "var(--color-green-900)",
-  fontSize: "0.7rem",
+  background: "var(--color-green-900)",
+  color: "#FFFFFF",
+  fontFamily: "var(--font-body)",
+  fontSize: "11px",
   fontWeight: 700,
+  lineHeight: 1,
 };
 
-const navButtonStyle = {
+const pillBaseStyle = {
   display: "inline-flex",
   alignItems: "center",
-  height: "40px",
-  padding: "0 20px",
+  justifyContent: "center",
+  height: "44px",
   boxSizing: "border-box",
-  fontSize: "var(--text-sm)",
+  borderRadius: "var(--radius-pill)",
+  fontFamily: "var(--font-body)",
+  fontSize: "15px",
+  fontWeight: 600,
+  lineHeight: 1,
+  color: "var(--color-green-900)",
+  textDecoration: "none",
+  whiteSpace: "nowrap",
+  cursor: "pointer",
+};
+
+const loginButtonStyle = {
+  ...pillBaseStyle,
+  padding: "0 22px",
+  background: "transparent",
+  border: "1.5px solid var(--color-green-900)",
+};
+
+const findMarketStyle = {
+  ...pillBaseStyle,
+  padding: "0 24px",
+  background: "var(--color-amber)",
+  border: "none",
 };
 
 function SearchIcon() {
   return (
     <svg
-      width="20"
-      height="20"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -137,8 +162,8 @@ function SearchIcon() {
 function BookmarkIcon() {
   return (
     <svg
-      width="20"
-      height="20"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -179,8 +204,6 @@ export default function Navbar() {
           </nav>
 
           <div style={rightStyle}>
-            <LiveClock />
-
             <button
               type="button"
               onClick={openSearch}
@@ -199,11 +222,11 @@ export default function Navbar() {
               <span style={badgeStyle}>0</span>
             </Link>
 
-            <button type="button" className="btn-outline" style={navButtonStyle}>
+            <button type="button" style={loginButtonStyle}>
               Login
             </button>
 
-            <Link to="/directory" className="btn-primary" style={navButtonStyle}>
+            <Link to="/directory" style={findMarketStyle}>
               Find a Market
             </Link>
           </div>

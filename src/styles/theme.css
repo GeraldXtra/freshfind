@@ -2,7 +2,7 @@
   /* Colors */
   --color-cream: #F7F5EF;
   --color-surface: #FFFFFF;
-  --color-green-900: #14532D;
+  --color-green-900: #1A5632;
   --color-green-700: #1F6B3D;
   --color-green-soft: #E8F0E9;
   --color-amber: #F5B700;
@@ -10,6 +10,8 @@
   --color-text-muted: #5C6B60;
   --color-border: #E5E7E0;
   --color-badge-open: #14532D;
+  --color-footer-text: #E6EFE8;
+  --color-footer-muted: #B9CFC0;
 
   /* Fonts */
   --font-display: 'Fraunces', Georgia, serif;
