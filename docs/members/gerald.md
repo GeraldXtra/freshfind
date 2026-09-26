@@ -12,7 +12,7 @@ When nothing is chosen the grid shows nearby: the four markets with featured tru
 
 In season this week filters produce.json with inSeason for the current month from useClock, sorts by season length so the truly seasonal items come first, and shows four.
 
-The hero uses hero.png as a background with a dark overlay so the white text stays readable. All cards are the shared MarketCard.
+The hero uses hero.webp as a background with a dark overlay so the white text stays readable. All cards are the shared MarketCard.
 
 ## MarketCard (src/components/MarketCard.jsx)
 Takes a market, an optional distance and the current time. It builds the badge with openBadge, the hours line with hoursLabel, the photo with marketImage, and places a BookmarkButton over the image. The image and the title are links to /market/ plus the id. The button sits outside the link on purpose, because a button inside a link would also trigger the link.

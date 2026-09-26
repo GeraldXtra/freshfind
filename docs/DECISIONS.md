@@ -7,7 +7,7 @@
 - 2026-09-25: Split the team by pages with a shared theme file and one data owner, so all pages look consistent and nobody edits the same file at once.
 - 2026-09-25: Regenerated all market photos with different angles, times of day and settings after noticing the first batch looked identical.
 - 2026-09-25: The shared layout gets a collapsible menu at phone widths so every page meets the responsive requirement without each member handling the navbar.
-- 2026-09-25: Images are kept as png during development and will be converted to WebP in one pass before the Lighthouse tests.
+- 2026-09-25: Images were kept as png during development and were converted to WebP in one pass before the Lighthouse tests.
 - 2026-09-25: Schedules are stored as real open and close times per day so open now, next opening and the weekly table all come from one function each.
 - 2026-09-25: Produce seasons are stored as month numbers so badges, the calendar and this week's picks are computed and stay correct in any month.
 - 2026-09-25: The chatbot uses pre written answer templates with placeholders filled from the data files, so it can answer real questions while staying fully rule based as the brief requires.
@@ -18,3 +18,4 @@
 - 2026-09-25: The Contact page asks for location as soon as it opens, matching the You are here design, and handles blocked and unsupported browsers with clear messages.
 - 2026-09-25: A global box sizing rule was added to index.css after a full width button overflowed its card, so no page can hit that bug again.
 - 2026-09-25: Spacing tokens, card sizes and page paddings were reduced after checking every page at 100 percent on a laptop screen.
+- 2026-09-26: Converted every photo to WebP and resized it to the size it is shown at, which cut the images from 100.49 MB to 4.01 MB.

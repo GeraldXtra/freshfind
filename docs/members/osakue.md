@@ -9,7 +9,7 @@ The page keeps two pieces of state: the chosen category and the search text. The
 Each card shows produceImage, the name, a badge with seasonLabel, which turns the season month numbers into text like Jun–Aug, and the badge turns amber when inSeason says the current month from the clock is in that list. Found at turns the item's markets ids into short names by looking them up in markets.json, links the first two to their market pages, and links +N more to the Directory filtered by that produce. Every card has the shared BookmarkButton.
 
 ## Seasonal Picks, how it works
-The banner places seasonal-left.png and seasonal-right.png at the edges with the headline between them, and the subtitle shows the current month name from the clock.
+The banner places seasonal-left.webp and seasonal-right.webp at the edges with the headline between them, and the subtitle shows the current month name from the clock.
 
 picks is produce.json filtered with inSeason for the current month, sorted by season length so the shortest seasons come first, and cut to four. Each pick shows a Peak season badge and Best at with the first two markets.
 

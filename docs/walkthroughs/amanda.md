@@ -73,7 +73,7 @@ Three plain steps, filter then decorate then sort, are easy to read and easy to 
 
 ### The imports
 - `useEffect` from react, to ask for location when the page opens.
-- `pageImage` from the images helper, to load contact-basket.png by name.
+- `pageImage` from the images helper, to load contact-basket.webp by name.
 - `mapEmbedUrl` from the links helper, which builds a Google Maps address from a latitude and longitude with no API key.
 - `useGeolocation`, `Breadcrumbs`, and the stylesheet.
 

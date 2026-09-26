@@ -15,7 +15,7 @@ Typical produce turns the market's produce ids into full records by finding each
 The side card holds the map, an iframe whose address comes from mapEmbedUrl with the market's lat and lng, the address and area from the record, the next opening from nextOpenLabel, and a Get Directions link built by directionsUrl that opens Google Maps in a new tab. nextOpenLabel walks forward from today through the schedule and returns Today at, Tomorrow at or the day name with the opening time. The card is sticky on desktop and stacks under the main content on tablets and phones.
 
 ## About, how it works
-Plain content: the mission hero with about-mission.png fading into the cream background, three reasons with icons, and a team list rendered into cards. Each card shows the person's initials in a green circle and lays the photo over it, so if a photo file is missing the initials show instead.
+Plain content: the mission hero with about-mission.webp fading into the cream background, three reasons with icons, and a team list rendered into cards. Each card shows the person's initials in a green circle and lays the photo over it, so if a photo file is missing the initials show instead.
 
 ## Questions judges may ask
 - Where does the schedule come from? The market's schedule object in markets.json, seven keys, each null or open and close times.

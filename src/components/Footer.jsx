@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import LiveClock from './LiveClock'
 import VisitorCounter from './VisitorCounter'
-import logo from '../assets/images/brand/logo-on-dark.png'
+import logo from '../assets/images/brand/logo-on-dark.webp'
 import '../styles/footer.css'
 
 const exploreLinks = [

@@ -37,7 +37,7 @@ State and navigation from react and the router, both data files, pageImage and p
 - `clearFilters` resets the three dropdowns. `handleSearch` stops the form's page reload with preventDefault, builds URL parameters with URLSearchParams from whatever is chosen, and navigates to the Directory with them, so Amanda's page opens pre filtered.
 
 ### The JSX
-- The hero uses hero.png as an inline background style, the dark overlay comes from CSS, and the search form holds three controlled selects inside `.home-search-field` blocks with icons, and a round submit button.
+- The hero uses hero.webp as an inline background style, the dark overlay comes from CSS, and the search form holds three controlled selects inside `.home-search-field` blocks with icons, and a round submit button.
 - The markets section head switches between Markets near you and N matching markets, and between the location button and the Clear search button, based on hasFilters. The grid renders MarketCard for each entry of `shown`, or the empty message.
 - In season this week maps `seasonal` into round image links to the Produce Guide.
 

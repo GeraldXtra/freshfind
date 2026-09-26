@@ -8,7 +8,7 @@ import { distanceKm } from "../utils/geo";
 import useClock from "../hooks/useClock";
 import useGeolocation from "../hooks/useGeolocation";
 import MarketCard from "../components/MarketCard";
-import logoOnDark from "../assets/images/brand/logo-on-dark.png";
+import logoOnDark from "../assets/images/brand/logo-on-dark.webp";
 import "../styles/home.css";
 
 const days = [

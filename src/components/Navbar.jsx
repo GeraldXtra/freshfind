@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import SearchOverlay from "./SearchOverlay";
 import { useBookmarks } from "../context/BookmarksContext";
-import logo from "../assets/images/brand/logo.png";
+import logo from "../assets/images/brand/logo.webp";
 import "../styles/navbar.css";
 
 const navItems = [

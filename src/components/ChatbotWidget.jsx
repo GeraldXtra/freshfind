@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import data from "../data/chatbot.json";
 import { answerQuestion } from "../utils/chatbot";
 import useGeolocation from "../hooks/useGeolocation";
-import avatar from "../assets/images/brand/chatbot-avatar.png";
+import avatar from "../assets/images/brand/chatbot-avatar.webp";
 import "../styles/chatbot.css";
 
 let nextId = 1;
