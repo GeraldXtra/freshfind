@@ -1,0 +1,214 @@
+.directory {
+  padding: var(--space-5) 0 var(--space-8);
+}
+
+.directory-head {
+  margin-top: var(--space-4);
+}
+
+.directory-head h1 {
+  margin: 0;
+}
+
+.directory-sub {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.directory-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.directory-filters-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
+}
+
+.directory-select {
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.directory-select:focus {
+  outline: none;
+  border-color: var(--color-green-900);
+}
+
+.directory-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-4) 0 var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.directory-toggle-knob {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  transition: background-color 0.2s ease;
+}
+
+.directory-toggle-knob::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  transition: transform 0.2s ease;
+}
+
+.directory-toggle.is-on {
+  border-color: var(--color-green-900);
+  background: var(--color-green-900);
+  color: var(--color-surface);
+}
+
+.directory-toggle.is-on .directory-toggle-knob {
+  background: var(--color-amber);
+}
+
+.directory-toggle.is-on .directory-toggle-knob::after {
+  transform: translateX(18px);
+}
+
+.directory-location {
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-green-900);
+  cursor: pointer;
+}
+
+.directory-location:hover {
+  border-color: var(--color-green-900);
+}
+
+.directory-location:disabled {
+  opacity: 0.8;
+  cursor: default;
+}
+
+.directory-results {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 var(--space-4);
+}
+
+.directory-count {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.directory-clear {
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-green-900);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.directory-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-7) var(--space-5);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+}
+
+.directory-empty p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .directory-filters-right {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .directory-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .directory-filters {
+    padding: var(--space-3);
+  }
+
+  .directory-select,
+  .directory-toggle,
+  .directory-location {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .directory-filters-right {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .directory-results {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

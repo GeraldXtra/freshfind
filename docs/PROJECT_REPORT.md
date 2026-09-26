@@ -48,6 +48,7 @@ Bookmarks and notes are kept in the browser's session storage. They belong to th
 
 ## Diagrams
 The diagrams are written in Mermaid in docs/diagrams and rendered by GitHub. Exported images of each are in docs/diagrams/png and included below in the submitted report.
+Each diagram has a written explanation in docs/diagrams/explained, covering the shapes, every step and the logic behind it.
 1. Site map: how the pages link to each other and the cross page features.
 2. Flowchart, finding a market: the paths from the home search, the search overlay and the directory to a market detail and a bookmark.
 3. Data Flow Diagram, Level 0: the app as one process with the visitor, the three JSON stores, the browser clock and location, session storage and the map embed.
