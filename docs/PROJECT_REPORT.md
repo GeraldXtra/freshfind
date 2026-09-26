@@ -62,6 +62,8 @@ Each diagram has a written explanation in docs/diagrams/explained, covering the 
 ## Test Data Used in the Project
 The sample data and the test scenarios are listed in docs/TEST_DATA.md.
 
+We also tested every page with Google Lighthouse on mobile and desktop, before and after fixing what it found. Every page now scores 100 for accessibility, best practices and SEO. The scores and the fixes are in docs/LIGHTHOUSE.md.
+
 ## Project Installation Instructions
 
 ### Requirements

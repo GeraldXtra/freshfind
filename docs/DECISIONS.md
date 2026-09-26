@@ -27,3 +27,4 @@
 - 2026-09-26: Added small copies of the hero and the eight market photos, hero-sm at 800px wide and the markets at 600px wide, and listed them in srcSet so phones download the small file.
 - 2026-09-26: The hero and the market detail banner became real img elements behind their overlays instead of CSS background images, so the browser finds the biggest picture the moment it reads the HTML.
 - 2026-09-26: The first Seasonal top pick and the first Directory market card load eagerly instead of lazily, because on a phone each is the largest image in the first screen of its page.
+- 2026-09-26: Tested all eight pages with Lighthouse before and after the fixes and recorded both sets of scores in LIGHTHOUSE.md.
