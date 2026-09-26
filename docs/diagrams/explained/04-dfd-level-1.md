@@ -25,8 +25,3 @@ Each process reads only what it needs. D1 is read by every process because marke
 
 ## Where it lives in the code
 1.0 Home.jsx and Directory.jsx. 2.0 MarketDetail.jsx. 3.0 ProduceGuide.jsx and Seasonal.jsx. 4.0 chatbot.js and ChatbotWidget.jsx. 5.0 BookmarksContext.jsx, BookmarkButton.jsx and Bookmarks.jsx. 6.0 useGeolocation, links.js and the map iframes in MarketDetail.jsx and Contact.jsx.
-
-## Questions judges may ask
-- Which process writes data? Only 5.0, and only to the session store.
-- Why does the assistant read all three files? Its answers are filled from real market and produce records, and its rules come from chatbot.json.
-- Who built each process? 1.0 Gerald and Amanda, 2.0 Ibrahim, 3.0 Osakue, 4.0 and 5.0 Gerald, 6.0 shared between Amanda, Ibrahim and Gerald.

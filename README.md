@@ -8,7 +8,10 @@ FreshFind puts it all in one place. You can see every market near you, the exact
 
 The whole site runs in the browser. No accounts, no servers, nothing to install. Just useful market information that loads fast on any device. We built FreshFind for TechWiz 7, the world tech championship by Aptech, under the eGreen Basket theme.
 
-## Team
+## Live site
+https://geraldxtra.github.io/freshfind/
+
+## Team Tech Hive
 - Eberechukwu Uchechukwu Gerald, Team Leader
 - Chukwujekwu Chimdiuso Amanda
 - Ibrahim Ogunsola Kelvin
@@ -18,3 +21,14 @@ The whole site runs in the browser. No accounts, no servers, nothing to install.
 Aptech Computer Education, Nigeria
 Course: Advanced Diploma in Software Engineering (ADSE)
 Semester 2
+
+## Run it on your computer
+You need Node.js version 18 or newer, which comes with npm, and a modern browser such as Chrome, Edge or Firefox.
+1. Unzip the project folder, or clone the repository.
+2. Open a terminal inside the freshfind folder.
+3. Run npm install to download what the project needs.
+4. Run npm run dev.
+5. Open the address it prints, usually http://localhost:5173/freshfind/
+
+To see the fast production version, run npm run build and then npm run preview.
+No database, server or API keys are needed.

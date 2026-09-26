@@ -1,7 +1,9 @@
 # AI Tools Acknowledgment
-Following the TechWiz 7 guidelines, this is the list of AI tools used on this project and what each was used for.
-- ChatGPT image generation: design mockups for the nine pages, sample photos of markets and produce, the logo and the chatbot avatar.
-- Claude: planning support, review of design decisions, help drafting the sample data and documentation, and debugging help.
-- Claude Code: the project scaffolding, meaning the folder structure, the theme variables, the shared layout components and the shared helper functions, which the team reviewed and built on.
+Following the TechWiz 7 guidelines, these are the AI tools Tech Hive used and what we used them for.
 
-All page logic and features were written by the team members named in the README. Every member can explain the parts they built and the parts built by others.
+- ChatGPT image generation: the design mockups for the nine pages, the photos of the markets and the produce, the logo and the chatbot avatar.
+- Claude: code assistance, planning from the SRS, debugging, the sample data, and help with the documentation and diagrams.
+- Claude Code: code assistance inside our project, including setting up the project, converting the photos to WebP and applying the fixes we found with Lighthouse.
+
+## How we used them
+We used AI as a support tool, as the guidelines allow. The design choices, the review and the testing were ours. We checked every page against the SRS, ran and read the Lighthouse tests ourselves, and changed what did not fit. We are responsible for every line we submit and will explain our code and design decisions to the judges.

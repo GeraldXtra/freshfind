@@ -21,8 +21,3 @@ Everything joins on ids. A market lists what it sells by id, a produce item list
 
 ## Where it lives in the code
 markets.json and produce.json in src/data, the entities object in chatbot.json, and the object BookmarksContext.jsx keeps in sessionStorage.
-
-## Questions judges may ask
-- Is this a database? No, three JSON files with the same structure a database table would have.
-- Why store the link on both sides? So the market page can list its produce and the produce page can list its markets without searching the other file. We keep both sides in sync by hand, it is sample data.
-- Why ids and not names? Names have spaces and can change; ids are stable and safe in URLs.

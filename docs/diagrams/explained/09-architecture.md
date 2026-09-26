@@ -26,8 +26,3 @@ Shared things sit once at the top or the side and are reused, so the site behave
 
 ## Where it lives in the code
 App.jsx for the top, src/components for the frame and shared pieces, src/pages for the pages, src/utils for the helpers, src/hooks and src/context for the hooks and the provider, src/data for the cylinder, src/styles for the theme.
-
-## Questions judges may ask
-- Why is the provider above the navbar? So the navbar badge can read the bookmarks store as well as the pages.
-- What changes when I click a link? Only the page area; the frame stays.
-- Where would you add a new page? A file in src/pages, a route in App.jsx, a link in the navbar list.

@@ -26,8 +26,3 @@ The picture makes the SRS constraints visible: three read only files as the data
 
 ## Where it lives in the code
 The three files are in src/data. sessionStorage is used by BookmarksContext.jsx and VisitorCounter.jsx. The clock is useClock, the geolocation is useGeolocation, the map is the iframe built by mapEmbedUrl in links.js.
-
-## Questions judges may ask
-- Why is there no server on the diagram? Because the brief forbids one; the dotted arrow states that on purpose.
-- Where is user data stored? Only in sessionStorage in the visitor's browser, and only bookmark ids and notes.
-- Does the map send our data anywhere? It receives coordinates to draw the map, nothing about the visitor.

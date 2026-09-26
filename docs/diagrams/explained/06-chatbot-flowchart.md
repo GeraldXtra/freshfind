@@ -27,8 +27,3 @@ Entities come before intents on purpose: if someone names Mile 12, they want Mil
 
 ## Where it lives in the code
 answerQuestion in src/utils/chatbot.js is the diagram in code, with the helper functions marketInfo, produceInfo, seasonal, openNow, openDay and nearMe as the rectangles. The chips, the typing delay and the link buttons are in ChatbotWidget.jsx. The words and answers are in chatbot.json.
-
-## Questions judges may ask
-- Is this artificial intelligence? No. Every sentence the bot can say is written in chatbot.json. The engine only matches words and fills blanks from the data files.
-- What if I ask something it does not know? The Nothing matched branch shows the fallback and suggestion chips.
-- Why check the market name before anything else? A named market is the clearest signal of what the visitor wants.

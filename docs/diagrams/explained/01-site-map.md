@@ -23,8 +23,3 @@ Every page is reachable within two clicks from Home. Market Detail is the page m
 
 ## Where it lives in the code
 App.jsx lists the routes. Navbar.jsx holds the links. The arrows into Market Detail are the Link elements inside MarketCard.jsx, ProduceGuide.jsx, Seasonal.jsx, Bookmarks.jsx, SearchOverlay.jsx and the chatbot answers in chatbot.json.
-
-## Questions judges may ask
-- How many pages are there? Nine pages plus Not Found.
-- Why is Contact reachable from Home? It is in the navbar and the footer, and the chatbot links to it.
-- Why is the chatbot not a page? It is a floating widget rendered by App.jsx under every page.

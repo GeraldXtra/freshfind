@@ -1,4 +1,5 @@
 # FreshFind Project Report
+By Tech Hive
 
 ## Problem Definition
 Farmers markets are one of the best places to buy fresh, affordable food in Lagos, but finding the right one is harder than it should be. Information about where a market is, which days it runs and what hours it keeps is spread across flyers, WhatsApp groups, social media posts and word of mouth. There is no single place a resident can check. People end up showing up on the wrong day, arriving after the market has wound down, or travelling across town for produce that is out of season.
@@ -37,7 +38,7 @@ Features shared across pages: a navbar with search, a bookmark count and a non f
 Design mockups for all nine pages are in design/mockups.
 
 ### Data design
-Three JSON files in src/data hold everything the site shows. Their fields are documented in docs/DATA_GUIDE.md.
+Three JSON files in src/data hold everything the site shows. Every record in a file has the same fields, listed below, and the pages only read those fields and never change them.
 - markets.json: id, name, area, address, lat, lng, description, about, image, schedule (seven days with open and close times or null), produce (list of produce ids), featured.
 - produce.json: id, name, category, season (month numbers), description, markets (list of market ids), image.
 - chatbot.json: greeting, quick replies, fallback, entities for markets, produce and days, and intents with keywords, answers, optional actions, links and quick replies.
@@ -84,3 +85,5 @@ We also tested every page with Google Lighthouse on mobile and desktop, before a
 3. The dist folder can be uploaded to any static host such as GitHub Pages.
 
 No environment variables, database or API keys are needed.
+
+The site is also live at https://geraldxtra.github.io/freshfind/ and is published automatically from our dev branch with GitHub Pages.

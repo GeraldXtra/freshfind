@@ -26,8 +26,3 @@ There are three ways in and they all meet at the same Directory step, so the sit
 
 ## Where it lives in the code
 The Home search panel and live filtering are in Home.jsx. The overlay is SearchOverlay.jsx. The Directory filters, sorting and the location branch are Directory.jsx with useGeolocation. The card is MarketCard.jsx, the detail page is MarketDetail.jsx, and the save action is BookmarkButton.jsx writing to BookmarksContext.jsx.
-
-## Questions judges may ask
-- What if the visitor refuses location? The No branch: the list still works, sorted by name or next open day.
-- Why do results appear on Home before pressing Search? The brief asks for results displayed dynamically when a filter is applied.
-- Why does the overlay go to the Directory? So one page owns all the filtering logic.

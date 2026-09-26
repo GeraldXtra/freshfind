@@ -27,8 +27,3 @@ Because every schedule stores real open and close times, one function answers th
 
 ## Where it lives in the code
 isOpenNow and openBadge in src/utils/schedule.js, useClock for the time, distanceKm in src/utils/geo.js, useGeolocation for the position, and the nearby list in Home.jsx and the distance sort in Directory.jsx.
-
-## Questions judges may ask
-- What if a market opens later today? The badge says OPENS TODAY with the time, because the second decision fails while the entry exists.
-- How accurate is the distance? Straight line distance from the coordinates, rounded to one decimal, enough to order markets.
-- Does it work on Sunday? Yes, Sunday is just another key in the schedule, null for markets that close.

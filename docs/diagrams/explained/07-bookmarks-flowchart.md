@@ -25,8 +25,3 @@ Only ids are stored, so bookmarks stay tiny and always show current data. The sa
 
 ## Where it lives in the code
 BookmarkButton.jsx for the tap, BookmarksContext.jsx for the list, the badge in Navbar.jsx, and Bookmarks.jsx for the page, notes, export and share. The share addresses come from links.js.
-
-## Questions judges may ask
-- Where are bookmarks stored? In sessionStorage in the visitor's browser only.
-- Why not save them permanently? The brief says notes are session only and nothing may be stored on a server.
-- What does export produce? A plain text list with hours, seasons and notes, copied and downloaded.

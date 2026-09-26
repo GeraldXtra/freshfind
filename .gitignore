@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+team-notes/
+docs/walkthroughs/
+docs/members/
+docs/TEAM_ROLES.md
+docs/VIDEO_SCRIPT.md
+docs/THEME_GUIDE.md
+docs/IMAGES_GUIDE.md
+docs/ASSUMPTIONS.md
+docs/DATA_GUIDE.md
+TEAM_GUIDE.md
