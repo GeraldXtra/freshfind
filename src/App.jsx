@@ -1,21 +1,21 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { BookmarksProvider } from './context/BookmarksContext'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import ChatbotWidget from './components/ChatbotWidget'
-import Home from './pages/Home'
-import Directory from './pages/Directory'
-import MarketDetail from './pages/MarketDetail'
-import ProduceGuide from './pages/ProduceGuide'
-import Seasonal from './pages/Seasonal'
-import Bookmarks from './pages/Bookmarks'
-import Contact from './pages/Contact'
-import About from './pages/About'
-import NotFound from './pages/NotFound'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BookmarksProvider } from "./context/BookmarksContext";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ChatbotWidget from "./components/ChatbotWidget";
+import Home from "./pages/Home";
+import Directory from "./pages/Directory";
+import MarketDetail from "./pages/MarketDetail";
+import ProduceGuide from "./pages/ProduceGuide";
+import Seasonal from "./pages/Seasonal";
+import Bookmarks from "./pages/Bookmarks";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/freshfind">
+    <BrowserRouter basename="/freshfind/">
       <BookmarksProvider>
         <Navbar />
         <main>
@@ -35,5 +35,5 @@ export default function App() {
         <Footer />
       </BookmarksProvider>
     </BrowserRouter>
-  )
+  );
 }

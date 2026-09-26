@@ -1,20 +1,22 @@
-import { useCallback, useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
-import SearchOverlay from './SearchOverlay'
-import { useBookmarks } from '../context/BookmarksContext'
-import logo from '../assets/images/brand/logo.png'
-import '../styles/navbar.css'
+import { useCallback, useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import SearchOverlay from "./SearchOverlay";
+import { useBookmarks } from "../context/BookmarksContext";
+import logo from "../assets/images/brand/logo.png";
+import "../styles/navbar.css";
 
 const navItems = [
-  { label: 'Market Directory', to: '/directory' },
-  { label: 'Produce Guide', to: '/produce' },
-  { label: 'Seasonal Picks', to: '/seasonal' },
-  { label: 'About', to: '/about' },
-]
+  { label: "Market Directory", to: "/directory" },
+  { label: "Produce Guide", to: "/produce" },
+  { label: "Seasonal Picks", to: "/seasonal" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
 
-const linkClass = ({ isActive }) => (isActive ? 'navbar-link is-active' : 'navbar-link')
+const linkClass = ({ isActive }) =>
+  isActive ? "navbar-link is-active" : "navbar-link";
 const panelLinkClass = ({ isActive }) =>
-  isActive ? 'navbar-panel-link is-active' : 'navbar-panel-link'
+  isActive ? "navbar-panel-link is-active" : "navbar-panel-link";
 
 function SearchIcon() {
   return (
@@ -30,7 +32,7 @@ function SearchIcon() {
       <circle cx="11" cy="11" r="7" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
     </svg>
-  )
+  );
 }
 
 function BookmarkIcon() {
@@ -46,7 +48,7 @@ function BookmarkIcon() {
     >
       <path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
     </svg>
-  )
+  );
 }
 
 function MenuIcon() {
@@ -64,7 +66,7 @@ function MenuIcon() {
       <line x1="4" y1="12" x2="20" y2="12" />
       <line x1="4" y1="17" x2="20" y2="17" />
     </svg>
-  )
+  );
 }
 
 function CloseIcon() {
@@ -81,32 +83,32 @@ function CloseIcon() {
       <line x1="6" y1="6" x2="18" y2="18" />
       <line x1="18" y1="6" x2="6" y2="18" />
     </svg>
-  )
+  );
 }
 
 export default function Navbar() {
-  const [searchOpen, setSearchOpen] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const { pathname } = useLocation()
-  const { count } = useBookmarks()
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const { count } = useBookmarks();
 
-  const openSearch = useCallback(() => setSearchOpen(true), [])
-  const closeSearch = useCallback(() => setSearchOpen(false), [])
-  const closeMenu = useCallback(() => setMenuOpen(false), [])
-  const toggleMenu = useCallback(() => setMenuOpen((value) => !value), [])
-
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
+  const openSearch = useCallback(() => setSearchOpen(true), []);
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const toggleMenu = useCallback(() => setMenuOpen((value) => !value), []);
 
   useEffect(() => {
-    if (!menuOpen) return undefined
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') setMenuOpen(false)
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [menuOpen])
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   return (
     <>
@@ -140,7 +142,11 @@ export default function Navbar() {
                 <SearchIcon />
               </button>
 
-              <Link to="/bookmarks" className="navbar-icon-btn" aria-label="Bookmarks">
+              <Link
+                to="/bookmarks"
+                className="navbar-icon-btn"
+                aria-label="Bookmarks"
+              >
                 <BookmarkIcon />
                 {count > 0 && <span className="navbar-badge">{count}</span>}
               </Link>
@@ -160,7 +166,7 @@ export default function Navbar() {
               onClick={toggleMenu}
               aria-expanded={menuOpen}
               aria-controls="navbar-panel"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               {menuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
@@ -173,7 +179,11 @@ export default function Navbar() {
               <ul className="navbar-panel-links">
                 {navItems.map((item) => (
                   <li key={item.to}>
-                    <NavLink to={item.to} className={panelLinkClass} onClick={closeMenu}>
+                    <NavLink
+                      to={item.to}
+                      className={panelLinkClass}
+                      onClick={closeMenu}
+                    >
                       {item.label}
                     </NavLink>
                   </li>
@@ -184,7 +194,11 @@ export default function Navbar() {
               <button type="button" className="navbar-pill navbar-login">
                 Login
               </button>
-              <Link to="/directory" className="navbar-pill navbar-cta" onClick={closeMenu}>
+              <Link
+                to="/directory"
+                className="navbar-pill navbar-cta"
+                onClick={closeMenu}
+              >
                 Find a Market
               </Link>
             </div>
@@ -194,5 +208,5 @@ export default function Navbar() {
 
       <SearchOverlay open={searchOpen} onClose={closeSearch} />
     </>
-  )
+  );
 }
