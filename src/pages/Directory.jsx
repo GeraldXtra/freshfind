@@ -1,10 +1,5 @@
-const mutedStyle = { color: 'var(--color-text-muted)' }
+import React from "react";
 
 export default function Directory() {
-  return (
-    <div className="container">
-      <h1>Market Directory</h1>
-      <p style={mutedStyle}>Under construction</p>
-    </div>
-  )
+  return <div>Directory</div>;
 }
