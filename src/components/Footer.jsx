@@ -114,7 +114,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="footer-heading">Explore</h4>
+            <h2 className="footer-heading">Explore</h2>
             <ul className="footer-list">
               {exploreLinks.map((item) => (
                 <li key={item.to}>
@@ -127,7 +127,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="footer-heading">Popular Markets</h4>
+            <h2 className="footer-heading">Popular Markets</h2>
             <ul className="footer-list">
               {popularMarkets.map((market) => (
                 <li key={market}>{market}</li>
@@ -136,7 +136,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="footer-heading">Contact</h4>
+            <h2 className="footer-heading">Contact</h2>
             <ul className="footer-list">
               <li className="footer-contact-item">
                 <MailIcon />

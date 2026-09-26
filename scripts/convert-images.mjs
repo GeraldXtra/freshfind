@@ -8,7 +8,7 @@ const imagesRoot = join(projectRoot, "src", "assets", "images")
 const sourceExtensions = new Set([".png", ".jpg", ".jpeg"])
 
 const folderSettings = {
-  markets: { width: 1200, quality: 78 },
+  markets: { width: 1200, quality: 78, small: { width: 600, quality: 75 } },
   pages: { width: 1200, quality: 78 },
   produce: { width: 600, height: 600, fit: "cover", quality: 80 },
   brand: { width: 512, quality: 90 },
@@ -21,7 +21,7 @@ function settingsFor(relativePath) {
   const folder = parts.length > 1 ? parts[0] : ""
   const name = basename(relativePath, extname(relativePath))
   if (folder === "pages" && name === "hero") {
-    return { width: 1920, quality: 78 }
+    return { width: 1920, quality: 78, small: { width: 800, quality: 75 } }
   }
   return folderSettings[folder] ?? defaultSettings
 }
@@ -58,7 +58,8 @@ function padStart(value, width) {
 async function convert(file) {
   const relativePath = relative(imagesRoot, file)
   const settings = settingsFor(relativePath)
-  const target = join(dirname(file), `${basename(file, extname(file))}.webp`)
+  const name = basename(file, extname(file))
+  const target = join(dirname(file), `${name}.webp`)
   const oldBytes = (await stat(file)).size
   const source = sharp(file).rotate()
   const before = await source.metadata()
@@ -75,17 +76,47 @@ async function convert(file) {
 
   const newBytes = (await stat(target)).size
   const after = await sharp(target).metadata()
+
+  const rows = [
+    {
+      from: relativePath.split(sep).join("/"),
+      to: relative(imagesRoot, target).split(sep).join("/"),
+      oldBytes,
+      newBytes,
+      oldDimensions: `${before.width}x${before.height}`,
+      newDimensions: `${after.width}x${after.height}`,
+      quality: settings.quality,
+    },
+  ]
+
+  if (settings.small) {
+    const smallTarget = join(dirname(file), `${name}-sm.webp`)
+    await sharp(file)
+      .rotate()
+      .resize({
+        width: settings.small.width,
+        fit: "inside",
+        withoutEnlargement: true,
+      })
+      .webp({ quality: settings.small.quality })
+      .toFile(smallTarget)
+
+    const smallBytes = (await stat(smallTarget)).size
+    const smallAfter = await sharp(smallTarget).metadata()
+    rows.push({
+      from: relativePath.split(sep).join("/"),
+      to: relative(imagesRoot, smallTarget).split(sep).join("/"),
+      oldBytes,
+      newBytes: smallBytes,
+      oldDimensions: `${before.width}x${before.height}`,
+      newDimensions: `${smallAfter.width}x${smallAfter.height}`,
+      quality: settings.small.quality,
+    })
+  }
+
   await unlink(file)
 
-  return {
-    from: relativePath.split(sep).join("/"),
-    to: relative(imagesRoot, target).split(sep).join("/"),
-    oldBytes,
-    newBytes,
-    oldDimensions: `${before.width}x${before.height}`,
-    newDimensions: `${after.width}x${after.height}`,
-    quality: settings.quality,
-  }
+  return rows
 }
 
 async function main() {
@@ -97,12 +128,13 @@ async function main() {
 
   const rows = []
   for (const file of files) {
-    rows.push(await convert(file))
+    rows.push(...(await convert(file)))
   }
 
-  const headers = ["file", "old size", "new size", "saved", "old px", "new px", "q"]
+  const headers = ["source", "webp file", "old size", "new size", "saved", "old px", "new px", "q"]
   const cells = rows.map((row) => [
     row.from,
+    row.to,
     formatBytes(row.oldBytes),
     formatBytes(row.newBytes),
     `${Math.round((1 - row.newBytes / row.oldBytes) * 100)}%`,
@@ -122,9 +154,10 @@ async function main() {
   }
   console.log(line)
 
-  const oldTotal = rows.reduce((sum, row) => sum + row.oldBytes, 0)
+  const sourceBytes = new Map(rows.map((row) => [row.from, row.oldBytes]))
+  const oldTotal = [...sourceBytes.values()].reduce((sum, bytes) => sum + bytes, 0)
   const newTotal = rows.reduce((sum, row) => sum + row.newBytes, 0)
-  console.log(`${rows.length} files converted`)
+  console.log(`${sourceBytes.size} files converted into ${rows.length} webp files`)
   console.log(`total before: ${formatBytes(oldTotal)} (${oldTotal} bytes)`)
   console.log(`total after:  ${formatBytes(newTotal)} (${newTotal} bytes)`)
   console.log(`saved:        ${Math.round((1 - newTotal / oldTotal) * 100)}%`)

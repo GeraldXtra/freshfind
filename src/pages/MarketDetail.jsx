@@ -167,10 +167,15 @@ export default function MarketDetail() {
           ]}
         />
 
-        <section
-          className="detail-banner"
-          style={{ backgroundImage: `url(${marketImage(market.image)})` }}
-        >
+        <section className="detail-banner">
+          <img
+            className="detail-banner-image"
+            src={marketImage(market.image)}
+            srcSet={`${marketImage(market.image, "sm")} 600w, ${marketImage(market.image)} 1200w`}
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            alt=""
+            fetchPriority="high"
+          />
           <span
             className={badge.open ? "detail-badge is-open" : "detail-badge"}
           >

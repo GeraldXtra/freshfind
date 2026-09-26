@@ -187,10 +187,15 @@ export default function Home() {
 
   return (
     <div className="home">
-      <section
-        className="home-hero"
-        style={{ backgroundImage: `url(${pageImage("hero")})` }}
-      >
+      <section className="home-hero">
+        <img
+          className="home-hero-image"
+          src={pageImage("hero")}
+          srcSet={`${pageImage("hero", "sm")} 800w, ${pageImage("hero")} 1672w`}
+          sizes="100vw"
+          alt=""
+          fetchPriority="high"
+        />
         <div className="home-hero-inner">
           <div className="home-hero-logo">
             <img src={logoOnDark} alt="" />

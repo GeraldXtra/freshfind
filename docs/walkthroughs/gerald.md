@@ -20,7 +20,7 @@ Takes type, id and label. Calls isSaved and toggle. Stops the click from bubblin
 - schedule.js: DAY_KEYS, DAY_LABELS, formatTime, hoursLabel (groups consecutive days with the same hours into Mon–Sat), isOpenNow, nextOpening, openBadge, todayHours.
 - season.js: MONTHS, currentMonth, inSeason, seasonLabel.
 - geo.js: distanceKm using the haversine formula, rounded to one decimal.
-- images.js: marketImage, produceImage, pageImage, each building the path with new URL so Vite bundles the file.
+- images.js: marketImage, produceImage, pageImage, each building the path with new URL so Vite bundles the file. marketImage and pageImage take an optional size as a second argument; passing `sm` points at the smaller version of the same photo.
 - links.js: mapEmbedUrl, directionsUrl, whatsappShareUrl, xShareUrl, facebookShareUrl.
 - chatbot.js: the assistant's rule engine, below.
 
@@ -37,12 +37,12 @@ State and navigation from react and the router, both data files, pageImage and p
 - `clearFilters` resets the three dropdowns. `handleSearch` stops the form's page reload with preventDefault, builds URL parameters with URLSearchParams from whatever is chosen, and navigates to the Directory with them, so Amanda's page opens pre filtered.
 
 ### The JSX
-- The hero uses hero.webp as an inline background style, the dark overlay comes from CSS, and the search form holds three controlled selects inside `.home-search-field` blocks with icons, and a round submit button.
+- The hero holds hero.webp in an `<img>` behind the content, the small file for narrow screens and the full one for wide, the dark overlay comes from CSS, and the search form holds three controlled selects inside `.home-search-field` blocks with icons, and a round submit button.
 - The markets section head switches between Markets near you and N matching markets, and between the location button and the Clear search button, based on hasFilters. The grid renders MarketCard for each entry of `shown`, or the empty message.
 - In season this week maps `seasonal` into round image links to the Produce Guide.
 
 ## MarketCard.jsx
-Takes market, distance and now. Computes the badge with openBadge, the hours line with hoursLabel, the image with marketImage. The image and title are Links to the detail page. The badge and the BookmarkButton sit over the image. The distance line appears only when distance is not undefined. This one component is used by Home, the Directory and can be used by Bookmarks, so every market card on the site is the same code.
+Takes market, distance, now and an optional eager. Computes the badge with openBadge, the hours line with hoursLabel, the image with marketImage, called with and without `sm` so the srcSet offers the small file to phones and the full one to wider screens. The image and title are Links to the detail page. The badge and the BookmarkButton sit over the image. The distance line appears only when distance is not undefined. `eager` switches the photo from lazy to eager loading, which the Directory turns on for its first card only. This one component is used by Home, the Directory and can be used by Bookmarks, so every market card on the site is the same code.
 
 ## The chatbot
 

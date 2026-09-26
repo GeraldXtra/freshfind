@@ -198,10 +198,10 @@ export default function Directory() {
         </div>
 
         <div className="directory-results">
-          <p className="directory-count">
+          <h2 className="directory-count">
             {text ? `Results for "${query.trim()}": ` : ""}
             {sorted.length} {sorted.length === 1 ? "market" : "markets"}
-          </p>
+          </h2>
           {hasFilters && (
             <button
               type="button"
@@ -226,12 +226,13 @@ export default function Directory() {
           </div>
         ) : (
           <div className="directory-grid">
-            {sorted.map(({ market, distance }) => (
+            {sorted.map(({ market, distance }, index) => (
               <MarketCard
                 key={market.id}
                 market={market}
                 distance={distance}
                 now={now}
+                eager={index === 0}
               />
             ))}
           </div>

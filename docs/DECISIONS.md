@@ -19,3 +19,11 @@
 - 2026-09-25: A global box sizing rule was added to index.css after a full width button overflowed its card, so no page can hit that bug again.
 - 2026-09-25: Spacing tokens, card sizes and page paddings were reduced after checking every page at 100 percent on a laptop screen.
 - 2026-09-26: Converted every photo to WebP and resized it to the size it is shown at, which cut the images from 100.49 MB to 4.01 MB.
+- 2026-09-26: Added a meta description to index.html, because Lighthouse marked every page as missing one and that sentence is what search engines show.
+- 2026-09-26: The three footer column headings became h2 instead of h4, keeping their look from the footer CSS, so no page skips a heading level any more.
+- 2026-09-26: The Directory results count became an h2 with its own font rules in directory.css, so that page reads h1 then h2 then h3 in order while the line looks exactly the same.
+- 2026-09-26: The Seasonal calendar bars were given role="img" beside their aria-label, because a plain span is not allowed to carry that label.
+- 2026-09-26: The two Google fonts moved out of the index.css import and into the index.html head, loaded without blocking the first paint, with a noscript link for browsers with no JavaScript.
+- 2026-09-26: Added small copies of the hero and the eight market photos, hero-sm at 800px wide and the markets at 600px wide, and listed them in srcSet so phones download the small file.
+- 2026-09-26: The hero and the market detail banner became real img elements behind their overlays instead of CSS background images, so the browser finds the biggest picture the moment it reads the HTML.
+- 2026-09-26: The first Seasonal top pick and the first Directory market card load eagerly instead of lazily, because on a phone each is the largest image in the first screen of its page.

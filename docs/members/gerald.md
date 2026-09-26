@@ -12,10 +12,10 @@ When nothing is chosen the grid shows nearby: the four markets with featured tru
 
 In season this week filters produce.json with inSeason for the current month from useClock, sorts by season length so the truly seasonal items come first, and shows four.
 
-The hero uses hero.webp as a background with a dark overlay so the white text stays readable. All cards are the shared MarketCard.
+The hero shows hero.webp in an image sitting behind the content, with a dark overlay on top so the white text stays readable. All cards are the shared MarketCard.
 
 ## MarketCard (src/components/MarketCard.jsx)
-Takes a market, an optional distance and the current time. It builds the badge with openBadge, the hours line with hoursLabel, the photo with marketImage, and places a BookmarkButton over the image. The image and the title are links to /market/ plus the id. The button sits outside the link on purpose, because a button inside a link would also trigger the link.
+Takes a market, an optional distance, the current time and an optional eager that loads the photo straight away instead of lazily. It builds the badge with openBadge, the hours line with hoursLabel, the photo with marketImage, and places a BookmarkButton over the image. The image and the title are links to /market/ plus the id. The button sits outside the link on purpose, because a button inside a link would also trigger the link.
 
 ## Chatbot (src/components/ChatbotWidget.jsx, src/utils/chatbot.js, src/styles/chatbot.css)
 The widget holds the open state, the message list, the current quick reply chips, the input text and a typing flag. Sending a message adds the visitor's bubble, calls answerQuestion in chatbot.js, and after half a second adds the bot's bubble with its link button and chips. Escape closes it and the list scrolls to the newest message.

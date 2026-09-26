@@ -25,7 +25,7 @@ Shared components in src/components:
 Each page has one CSS file in src/styles with class names starting with the page name.
 
 ## Styling
-One theme file, src/styles/theme.css, holds every color, font, spacing, radius and text size as a variable. index.css applies the fonts, the box sizing rule, the container and the shared button and card classes. No raw hex codes inside pages. Two breakpoints only, 900px for tablets and 600px for phones.
+One theme file, src/styles/theme.css, holds every color, font, spacing, radius and text size as a variable. The index.html head loads the two Google fonts. index.css applies them, the box sizing rule, the container and the shared button and card classes. No raw hex codes inside pages. Two breakpoints only, 900px for tablets and 600px for phones.
 
 ## The data is the center
 There is no backend and no database. The database is three JSON files in src/data. Pages import them like any module and read them. Nothing is ever written back and nothing is sent to a server.
@@ -56,7 +56,7 @@ If a market or produce item is ever added, it is one new record in one file and 
 - schedule.js: hoursLabel turns a schedule into Mon–Sat · 6am–4pm, isOpenNow compares the clock with today's hours, openBadge returns OPEN NOW or when the market next opens, formatTime turns 06:00 into 6am, and DAY_KEYS maps the clock's day number to the schedule keys.
 - season.js: currentMonth, inSeason and seasonLabel turn the month number lists into badges, picks and calendar bars.
 - geo.js: distanceKm measures the distance between two coordinates.
-- images.js: marketImage, produceImage and pageImage build image paths from the names in the data.
+- images.js: marketImage, produceImage and pageImage build image paths from the names in the data. marketImage and pageImage also take sm as a second argument, which returns the smaller version of the file for phones.
 - links.js: mapEmbedUrl, directionsUrl and the share links.
 - chatbot.js: the assistant's rule engine.
 

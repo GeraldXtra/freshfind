@@ -42,7 +42,7 @@ function ClockIcon() {
   );
 }
 
-export default function MarketCard({ market, distance, now }) {
+export default function MarketCard({ market, distance, now, eager }) {
   const badge = openBadge(market.schedule, now);
   const href = `/market/${market.id}`;
 
@@ -52,8 +52,10 @@ export default function MarketCard({ market, distance, now }) {
         <Link to={href} className="market-card-image-link">
           <img
             src={marketImage(market.image)}
+            srcSet={`${marketImage(market.image, "sm")} 600w, ${marketImage(market.image)} 1200w`}
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 400px"
             alt={market.name}
-            loading="lazy"
+            loading={eager ? "eager" : "lazy"}
           />
         </Link>
         <span

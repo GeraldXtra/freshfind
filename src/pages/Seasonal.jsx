@@ -100,13 +100,13 @@ export default function Seasonal() {
             </p>
           ) : (
             <div className="seasonal-grid">
-              {picks.map((item) => (
+              {picks.map((item, index) => (
                 <article key={item.id} className="card seasonal-card">
                   <div className="seasonal-card-media">
                     <img
                       src={produceImage(item.image)}
                       alt={item.name}
-                      loading="lazy"
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
                     <div className="seasonal-card-bookmark">
                       <BookmarkButton
@@ -187,6 +187,7 @@ export default function Seasonal() {
                           {active && (
                             <span
                               className="seasonal-bar"
+                              role="img"
                               aria-label={`${item.name} in season in ${name}`}
                             />
                           )}
