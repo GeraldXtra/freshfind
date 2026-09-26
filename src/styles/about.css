@@ -1,0 +1,248 @@
+.about {
+  padding-bottom: var(--space-7);
+}
+
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-cream);
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 250px;
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-5);
+}
+
+.about-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 46%;
+}
+
+.about-title {
+  margin: var(--space-2) 0 0;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.about-mission {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.about-hero-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+}
+
+.about-hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    var(--color-cream) 0%,
+    rgba(247, 245, 239, 0) 30%
+  );
+}
+
+.about-hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-why {
+  padding: var(--space-7) 0;
+  background: var(--color-surface);
+}
+
+.about-why h2,
+.about-team h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.about-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--space-5);
+}
+
+.about-why-item {
+  padding: 0 var(--space-5);
+  border-left: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.about-why-item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.about-why-item:last-child {
+  padding-right: 0;
+}
+
+.about-why-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--color-green-soft);
+  color: var(--color-green-900);
+}
+
+.about-why-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.about-why-item h3 {
+  margin: var(--space-3) 0 var(--space-1);
+  font-size: var(--text-lg);
+}
+
+.about-why-item p {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.about-team {
+  padding: var(--space-7) 0 0;
+}
+
+.about-team-sub {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-muted);
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.about-member {
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+}
+
+.about-member h3 {
+  margin: var(--space-3) 0 var(--space-1);
+  font-size: var(--text-base);
+}
+
+.about-member p {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.about-photo {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto;
+  border-radius: var(--radius-pill);
+  background: var(--color-green-soft);
+  overflow: hidden;
+}
+
+.about-initials {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-green-900);
+}
+
+.about-photo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .about-hero-text {
+    max-width: 55%;
+  }
+
+  .about-title {
+    font-size: 34px;
+  }
+
+  .about-hero-art {
+    width: 42%;
+  }
+
+  .about-why-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .about-why-item {
+    padding: 0;
+    border-left: none;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero-inner {
+    min-height: 0;
+  }
+
+  .about-hero-text {
+    max-width: 100%;
+  }
+
+  .about-hero-art {
+    position: static;
+    width: 100%;
+    height: 200px;
+  }
+
+  .about-hero-art::before {
+    display: none;
+  }
+
+  .about-title {
+    font-size: 30px;
+  }
+
+  .about-why h2,
+  .about-team h2 {
+    font-size: 26px;
+  }
+
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import produce from "../data/produce.json";
@@ -183,4 +181,3 @@ export default function ProduceGuide() {
     </div>
   );
 }
->>>>>>> 4ed7ca5b975d32e15184de95b23af7ea7d18dde5
