@@ -1,125 +1,26 @@
-import { useCallback, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import LiveClock from "./LiveClock";
+import { useCallback, useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import SearchOverlay from "./SearchOverlay";
-import logo from "../assets/images/brand/logo.png";
+import { useBookmarks } from "../context/BookmarksContext";
+import logo from "../assets/images/brand/logo.webp";
+import "../styles/navbar.css";
 
 const navItems = [
   { label: "Market Directory", to: "/directory" },
   { label: "Produce Guide", to: "/produce" },
   { label: "Seasonal Picks", to: "/seasonal" },
   { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
-const headerStyle = {
-  position: "sticky",
-  top: 0,
-  zIndex: 100,
-  background: "var(--color-surface)",
-  borderBottom: "1px solid var(--color-border)",
-};
-
-const innerStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  alignItems: "center",
-  columnGap: "48px",
-  rowGap: "var(--space-3)",
-  minHeight: "72px",
-};
-
-const logoStyle = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "10px",
-  fontFamily: "var(--font-display)",
-  fontWeight: 700,
-  fontSize: "22px",
-  color: "var(--color-green-900)",
-  textDecoration: "none",
-};
-
-const logoImgStyle = {
-  width: "28px",
-  height: "28px",
-  objectFit: "contain",
-};
-
-const navListStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "24px",
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-};
-
-const navLinkStyle = ({ isActive }) => ({
-  display: "inline-block",
-  padding: "var(--space-2) 0",
-  fontSize: "var(--text-sm)",
-  fontWeight: 500,
-  color: isActive ? "var(--color-green-900)" : "var(--color-text)",
-  textDecoration: "none",
-  borderBottom: isActive
-    ? "2px solid var(--color-green-700)"
-    : "2px solid transparent",
-});
-
-const rightStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "var(--space-3)",
-  marginLeft: "auto",
-};
-
-const iconButtonStyle = {
-  position: "relative",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "40px",
-  height: "40px",
-  border: "none",
-  borderRadius: "var(--radius-pill)",
-  background: "var(--color-green-soft)",
-  color: "var(--color-green-900)",
-  textDecoration: "none",
-  cursor: "pointer",
-};
-
-const badgeStyle = {
-  position: "absolute",
-  top: "-4px",
-  right: "-4px",
-  minWidth: "18px",
-  height: "18px",
-  padding: "0 var(--space-1)",
-  boxSizing: "border-box",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  borderRadius: "var(--radius-pill)",
-  background: "var(--color-amber)",
-  color: "var(--color-green-900)",
-  fontSize: "0.7rem",
-  fontWeight: 700,
-};
-
-const navButtonStyle = {
-  display: "inline-flex",
-  alignItems: "center",
-  height: "40px",
-  padding: "0 20px",
-  boxSizing: "border-box",
-  fontSize: "var(--text-sm)",
-};
+const linkClass = ({ isActive }) =>
+  isActive ? "navbar-link is-active" : "navbar-link";
+const panelLinkClass = ({ isActive }) =>
+  isActive ? "navbar-panel-link is-active" : "navbar-panel-link";
 
 function SearchIcon() {
   return (
     <svg
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -137,8 +38,6 @@ function SearchIcon() {
 function BookmarkIcon() {
   return (
     <svg
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -152,25 +51,79 @@ function BookmarkIcon() {
   );
 }
 
+function MenuIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <line x1="4" y1="7" x2="20" y2="7" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <line x1="4" y1="17" x2="20" y2="17" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <line x1="6" y1="6" x2="18" y2="18" />
+      <line x1="18" y1="6" x2="6" y2="18" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const { count } = useBookmarks();
+
   const openSearch = useCallback(() => setSearchOpen(true), []);
   const closeSearch = useCallback(() => setSearchOpen(false), []);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const toggleMenu = useCallback(() => setMenuOpen((value) => !value), []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   return (
     <>
-      <header style={headerStyle}>
-        <div className="container" style={innerStyle}>
-          <Link to="/" style={logoStyle}>
-            <img src={logo} alt="FreshFind logo" style={logoImgStyle} />
+      <header className="navbar">
+        <div className="container navbar-inner">
+          <Link to="/" className="navbar-logo">
+            <img src={logo} alt="FreshFind logo" />
             FreshFind
           </Link>
 
           <nav aria-label="Main">
-            <ul style={navListStyle}>
+            <ul className="navbar-links">
               {navItems.map((item) => (
                 <li key={item.to}>
-                  <NavLink to={item.to} style={navLinkStyle}>
+                  <NavLink to={item.to} className={linkClass}>
                     {item.label}
                   </NavLink>
                 </li>
@@ -178,36 +131,86 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          <div style={rightStyle}>
-            <LiveClock />
+          <div className="navbar-actions">
+            <div className="navbar-icons">
+              <button
+                type="button"
+                className="navbar-icon-btn"
+                onClick={openSearch}
+                aria-label="Open search"
+              >
+                <SearchIcon />
+              </button>
 
-            <button
-              type="button"
-              onClick={openSearch}
-              aria-label="Open search"
-              style={iconButtonStyle}
-            >
-              <SearchIcon />
-            </button>
+              <Link
+                to="/bookmarks"
+                className="navbar-icon-btn"
+                aria-label="Bookmarks"
+              >
+                <BookmarkIcon />
+                {count > 0 && <span className="navbar-badge">{count}</span>}
+              </Link>
+            </div>
 
-            <Link
-              to="/bookmarks"
-              aria-label="Bookmarks"
-              style={iconButtonStyle}
-            >
-              <BookmarkIcon />
-              <span style={badgeStyle}>0</span>
-            </Link>
-
-            <button type="button" className="btn-outline" style={navButtonStyle}>
+            <button type="button" className="navbar-pill navbar-login">
               Login
             </button>
 
-            <Link to="/directory" className="btn-primary" style={navButtonStyle}>
+            <button type="button" className="navbar-pill navbar-signup">
+              Sign Up
+            </button>
+
+            <Link to="/directory" className="navbar-pill navbar-cta">
               Find a Market
             </Link>
+
+            <button
+              type="button"
+              className="navbar-burger"
+              onClick={toggleMenu}
+              aria-expanded={menuOpen}
+              aria-controls="navbar-panel"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
           </div>
         </div>
+
+        {menuOpen && (
+          <div id="navbar-panel" className="navbar-panel">
+            <nav aria-label="Mobile">
+              <ul className="navbar-panel-links">
+                {navItems.map((item) => (
+                  <li key={item.to}>
+                    <NavLink
+                      to={item.to}
+                      className={panelLinkClass}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="navbar-panel-actions">
+              <button type="button" className="navbar-pill navbar-login">
+                Login
+              </button>
+              <button type="button" className="navbar-pill navbar-signup">
+                Sign Up
+              </button>
+              <Link
+                to="/directory"
+                className="navbar-pill navbar-cta"
+                onClick={closeMenu}
+              >
+                Find a Market
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       <SearchOverlay open={searchOpen} onClose={closeSearch} />

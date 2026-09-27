@@ -1,1 +1,37 @@
 # Decision Log
+- 2026-09-24: Chose React with Vite over plain HTML or Angular. Reason: a component structure fits nine pages sharing one layout, and the brief allows ReactJS.
+- 2026-09-24: Chose the immersive hero design direction, a full width photo with a three field search panel, from several AI generated options.
+- 2026-09-25: Set the sample data to 8 markets instead of the 14 shown in early mockups, so every market is fully detailed and photographed.
+- 2026-09-25: Kept the dummy login button in the navbar because the brief lists it as a required UI feature, while confirming there are no user accounts.
+- 2026-09-25: Bookmarks use session storage, not local storage, to match the brief's session only notes rule.
+- 2026-09-25: Split the team by pages with a shared theme file and one data owner, so all pages look consistent and nobody edits the same file at once.
+- 2026-09-25: Regenerated all market photos with different angles, times of day and settings after noticing the first batch looked identical.
+- 2026-09-25: The shared layout gets a collapsible menu at phone widths so every page meets the responsive requirement without each member handling the navbar.
+- 2026-09-25: Images were kept as png during development and were converted to WebP in one pass before the Lighthouse tests.
+- 2026-09-25: Schedules are stored as real open and close times per day so open now, next opening and the weekly table all come from one function each.
+- 2026-09-25: Produce seasons are stored as month numbers so badges, the calendar and this week's picks are computed and stay correct in any month.
+- 2026-09-25: The chatbot uses pre written answer templates with placeholders filled from the data files, so it can answer real questions while staying fully rule based as the brief requires.
+- 2026-09-25: Shared helpers and one bookmark button component were added so every card on the site behaves the same way.
+- 2026-09-25: One shared MarketCard is used on Home, the Directory and Bookmarks so every market card on the site is the same code.
+- 2026-09-25: The Home search panel filters live on the page and also sends the choices to the Directory, so results are shown dynamically as the brief asks and the full directory is one click away.
+- 2026-09-25: Contact was added as a fifth navbar link so judges find it at once, a small departure from the four link mockups.
+- 2026-09-25: The Contact page asks for location as soon as it opens, matching the You are here design, and handles blocked and unsupported browsers with clear messages.
+- 2026-09-25: A global box sizing rule was added to index.css after a full width button overflowed its card, so no page can hit that bug again.
+- 2026-09-25: Spacing tokens, card sizes and page paddings were reduced after checking every page at 100 percent on a laptop screen.
+- 2026-09-26: Converted every photo to WebP and resized it to the size it is shown at, which cut the images from 100.49 MB to 4.01 MB.
+- 2026-09-26: Added a meta description to index.html, because Lighthouse marked every page as missing one and that sentence is what search engines show.
+- 2026-09-26: The three footer column headings became h2 instead of h4, keeping their look from the footer CSS, so no page skips a heading level any more.
+- 2026-09-26: The Directory results count became an h2 with its own font rules in directory.css, so that page reads h1 then h2 then h3 in order while the line looks exactly the same.
+- 2026-09-26: The Seasonal calendar bars were given role="img" beside their aria-label, because a plain span is not allowed to carry that label.
+- 2026-09-26: The two Google fonts moved out of the index.css import and into the index.html head, loaded without blocking the first paint, with a noscript link for browsers with no JavaScript.
+- 2026-09-26: Added small copies of the hero and the eight market photos, hero-sm at 800px wide and the markets at 600px wide, and listed them in srcSet so phones download the small file.
+- 2026-09-26: The hero and the market detail banner became real img elements behind their overlays instead of CSS background images, so the browser finds the biggest picture the moment it reads the HTML.
+- 2026-09-26: The first Seasonal top pick and the first Directory market card load eagerly instead of lazily, because on a phone each is the largest image in the first screen of its page.
+- 2026-09-26: Tested all eight pages with Lighthouse before and after the fixes and recorded both sets of scores in LIGHTHOUSE.md.
+- 2026-09-27: Added a non functional Sign Up button beside Login in the navbar and the phone menu, because the brief asks for login and sign up buttons.
+- 2026-09-27: The navbar now switches to its menu below 1250px, the smallest width where the full bar with Sign Up fits, so no page scrolls sideways at any width.
+- 2026-09-27: Open now, the badges, the Today row, the seasons and the footer clock now use Lagos time through one helper, so visitors in other time zones see the right state.
+- 2026-09-27: Every page change now scrolls to the top, so a new page never opens halfway down.
+- 2026-09-27: Fixed the chatbot so it never shows unfilled placeholders, asks which produce when none is named, treats today as open now only when nothing better matches, sends nearest market questions to near me, and answers near me as soon as location is allowed.
+- 2026-09-27: The footer clock now shows the date and seconds, and the simulated visitor counter rises slowly over time and adds one for every page load, so both are clearly live.
+- 2026-09-27: Team members can show their own social links on their About card, starting with Amanda's Instagram.

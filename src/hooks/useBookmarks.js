@@ -1,1 +1,1 @@
-// useBookmarks: session-only bookmark add/remove/list logic comes later.
+export { useBookmarks, useBookmarks as default } from '../context/BookmarksContext'

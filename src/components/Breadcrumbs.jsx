@@ -27,7 +27,6 @@ const linkStyle = {
   textDecoration: 'none',
 }
 
-// trail: [{ label, to }] — every item is a Link except the last, which is plain text.
 export default function Breadcrumbs({ trail = [] }) {
   return (
     <nav aria-label="Breadcrumb" style={navStyle}>

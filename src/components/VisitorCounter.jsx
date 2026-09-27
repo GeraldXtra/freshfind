@@ -1,16 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
+import useClock from '../hooks/useClock'
 
 const STORAGE_KEY = 'ff_visits'
+const START = Date.UTC(2026, 8, 20)
+const START_VISITORS = 1250
+const SECONDS_PER_VISITOR = 45
 
-const counterStyle = {
-  fontSize: '0.85rem',
+function simulatedVisitors(now) {
+  const lagosMs = Date.UTC(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    now.getHours(),
+    now.getMinutes(),
+    now.getSeconds(),
+  )
+  const seconds = Math.max(0, (lagosMs - START) / 1000)
+  return START_VISITORS + Math.floor(seconds / SECONDS_PER_VISITOR)
 }
 
-// Simulated visitor counter kept in sessionStorage under 'ff_visits'.
-// First visit in a session seeds a random number between 4000 and 6000,
-// every later mount adds 1.
-export default function VisitorCounter() {
-  const [count, setCount] = useState(null)
+export default function VisitorCounter({ className }) {
+  const now = useClock()
+  const [loads, setLoads] = useState(null)
   const hasRun = useRef(false)
 
   useEffect(() => {
@@ -21,15 +32,17 @@ export default function VisitorCounter() {
     try {
       const stored = sessionStorage.getItem(STORAGE_KEY)
       const parsed = stored === null ? NaN : parseInt(stored, 10)
-      visits = Number.isNaN(parsed) ? Math.floor(Math.random() * 2001) + 4000 : parsed + 1
+      visits = Number.isNaN(parsed) ? 1 : parsed + 1
       sessionStorage.setItem(STORAGE_KEY, String(visits))
     } catch {
-      visits = Math.floor(Math.random() * 2001) + 4000
+      visits = 1
     }
-    setCount(visits)
+    setLoads(visits)
   }, [])
 
-  if (count === null) return null
+  if (loads === null) return null
 
-  return <span style={counterStyle}>Visitors: {count.toLocaleString('en-US')}</span>
+  const count = simulatedVisitors(now) + loads
+
+  return <span className={className}>Visitors: {count.toLocaleString('en-US')}</span>
 }
