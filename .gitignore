@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+scripts/
+
 team-notes/
 docs/walkthroughs/
 docs/members/
