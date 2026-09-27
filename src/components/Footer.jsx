@@ -47,28 +47,10 @@ function PhoneIcon() {
   )
 }
 
-function InstagramIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  )
-}
-
-function FacebookIcon() {
+function WhatsAppIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M13.5 22v-8.2h2.8l.4-3.3h-3.2V8.4c0-.9.3-1.6 1.6-1.6h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.3h2.8V22h3.4z" />
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z" />
     </svg>
   )
 }
@@ -81,19 +63,9 @@ function XIcon() {
   )
 }
 
-function YouTubeIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-  )
-}
-
 const socialLinks = [
-  { label: 'Instagram', href: '#', Icon: InstagramIcon },
-  { label: 'Facebook', href: '#', Icon: FacebookIcon },
-  { label: 'X', href: '#', Icon: XIcon },
-  { label: 'YouTube', href: '#', Icon: YouTubeIcon },
+  { label: 'Chat with us on WhatsApp', href: 'https://wa.me/2347120103256', Icon: WhatsAppIcon },
+  { label: 'Follow @GeraldXtra on X', href: 'https://x.com/GeraldXtra', Icon: XIcon },
 ]
 
 export default function Footer() {
@@ -140,19 +112,26 @@ export default function Footer() {
             <ul className="footer-list">
               <li className="footer-contact-item">
                 <MailIcon />
-                <a href="mailto:hello@freshfind.ng" className="footer-link">
-                  hello@freshfind.ng
+                <a href="mailto:sonpele@proton.me" className="footer-link">
+                  sonpele@proton.me
                 </a>
               </li>
               <li className="footer-contact-item">
                 <PhoneIcon />
-                <a href="tel:+2348035550123" className="footer-link">
-                  +234 803 555 0123
+                <a href="tel:+2347120103256" className="footer-link">
+                  +234 712 010 3256
                 </a>
               </li>
               <li className="footer-social">
                 {socialLinks.map(({ label, href, Icon }) => (
-                  <a key={label} href={href} aria-label={label} className="footer-social-link">
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    className="footer-social-link"
+                  >
                     <Icon />
                   </a>
                 ))}
