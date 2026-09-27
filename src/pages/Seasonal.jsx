@@ -70,6 +70,11 @@ export default function Seasonal() {
 
   return (
     <div className="seasonal">
+      <div className="container">
+        <Breadcrumbs
+          trail={[{ label: "Home", to: "/" }, { label: "Seasonal Picks" }]}
+        />
+      </div>
       <section className="seasonal-banner">
         <img
           src={pageImage("seasonal-left")}
@@ -82,9 +87,6 @@ export default function Seasonal() {
           className="seasonal-art seasonal-art-right"
         />
         <div className="container seasonal-banner-inner">
-          <Breadcrumbs
-            trail={[{ label: "Home", to: "/" }, { label: "Seasonal Picks" }]}
-          />
           <h1 className="seasonal-title">What's fresh right now</h1>
           <p className="seasonal-sub">{monthName} picks, updated weekly</p>
         </div>
@@ -95,7 +97,7 @@ export default function Seasonal() {
           <h2>This week's top picks</h2>
           {picks.length === 0 ? (
             <p className="seasonal-empty">
-              Nothing is at peak season this month. The calendar below shows
+              Nothing is in season this month. The calendar below shows
               what is coming next.
             </p>
           ) : (
@@ -119,7 +121,7 @@ export default function Seasonal() {
                   <div className="seasonal-card-body">
                     <span className="seasonal-badge">
                       <LeafIcon />
-                      Peak season
+                      In season now
                     </span>
                     <h3>{item.name}</h3>
                     <p className="seasonal-card-text">{item.description}</p>

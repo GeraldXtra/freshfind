@@ -1,6 +1,8 @@
+import { lagosNow } from './time'
+
 export const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-export function currentMonth(now = new Date()) {
+export function currentMonth(now = lagosNow()) {
   return now.getMonth() + 1
 }
 

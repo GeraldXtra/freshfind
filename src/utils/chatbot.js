@@ -4,6 +4,7 @@ import produce from "../data/produce.json";
 import { DAY_KEYS, formatTime, hoursLabel, isOpenNow } from "./schedule";
 import { currentMonth, inSeason, seasonLabel } from "./season";
 import { distanceKm } from "./geo";
+import { lagosNow } from "./time";
 
 const dayNames = {
   mon: "Monday",
@@ -109,6 +110,7 @@ function fallback() {
 }
 
 function staticAnswer(intent) {
+  if (/\{\w+\}/.test(intent.answer)) return fallback();
   return reply(intent.answer, {
     link: intent.link,
     quickReplies: intent.quickReplies,
@@ -253,7 +255,7 @@ function nearMe(coords) {
 }
 
 export function answerQuestion(input, options = {}) {
-  const now = options.now || new Date();
+  const now = options.now || lagosNow();
   const coords = options.coords || null;
   const text = normalize(input);
   if (!text) return fallback();
@@ -264,7 +266,6 @@ export function answerQuestion(input, options = {}) {
 
   if (marketId) return marketInfo(marketId, dayKey, now);
   if (produceId) return produceInfo(produceId);
-  if (dayKey === "today") return openNow(now);
 
   const scored = data.intents
     .filter((intent) => intent.keywords.length)
@@ -277,13 +278,19 @@ export function answerQuestion(input, options = {}) {
     dayKey &&
     (!best || ["open-now", "open-day", "hours", "help"].includes(best.id))
   ) {
-    return openDay(dayKey, now);
+    return dayKey === "today" ? openNow(now) : openDay(dayKey, now);
   }
   if (!best) return fallback();
 
   if (best.action === "seasonal") return seasonal(now);
   if (best.action === "open-now") return openNow(now);
   if (best.action === "near-me") return nearMe(coords);
+  if (best.action === "produce-info") {
+    return reply(best.noResults, {
+      link: best.link,
+      quickReplies: best.quickReplies,
+    });
+  }
   if (best.action === "open-day") {
     if (/\bnow\b|\bcurrently\b|\bright now\b/.test(text)) return openNow(now);
     return reply("Which day do you mean? Pick one below or type it.", {

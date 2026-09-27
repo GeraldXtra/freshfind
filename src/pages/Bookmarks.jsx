@@ -365,6 +365,7 @@ export default function Bookmarks() {
                         onChange={(event) =>
                           setNote(market.id, event.target.value)
                         }
+                        aria-label={`Note for ${market.name}`}
                         placeholder="Add a note for this session"
                         maxLength={80}
                       />
@@ -425,6 +426,7 @@ export default function Bookmarks() {
                         onChange={(event) =>
                           setNote(item.id, event.target.value)
                         }
+                        aria-label={`Note for ${item.name}`}
                         placeholder="Add a note for this session"
                         maxLength={80}
                       />

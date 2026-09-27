@@ -23,7 +23,7 @@ Course: Advanced Diploma in Software Engineering (ADSE)
 Semester 2
 
 ## Run it on your computer
-You need Node.js version 18 or newer, which comes with npm, and a modern browser such as Chrome, Edge or Firefox.
+You need Node.js 20.19 or newer, which comes with npm, and a modern browser such as Chrome, Edge or Firefox.
 1. Unzip the project folder, or clone the repository.
 2. Open a terminal inside the freshfind folder.
 3. Run npm install to download what the project needs.

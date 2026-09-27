@@ -28,3 +28,8 @@
 - 2026-09-26: The hero and the market detail banner became real img elements behind their overlays instead of CSS background images, so the browser finds the biggest picture the moment it reads the HTML.
 - 2026-09-26: The first Seasonal top pick and the first Directory market card load eagerly instead of lazily, because on a phone each is the largest image in the first screen of its page.
 - 2026-09-26: Tested all eight pages with Lighthouse before and after the fixes and recorded both sets of scores in LIGHTHOUSE.md.
+- 2026-09-27: Added a non functional Sign Up button beside Login in the navbar and the phone menu, because the brief asks for login and sign up buttons.
+- 2026-09-27: The navbar now switches to its menu below 1250px, the smallest width where the full bar with Sign Up fits, so no page scrolls sideways at any width.
+- 2026-09-27: Open now, the badges, the Today row, the seasons and the footer clock now use Lagos time through one helper, so visitors in other time zones see the right state.
+- 2026-09-27: Every page change now scrolls to the top, so a new page never opens halfway down.
+- 2026-09-27: Fixed the chatbot so it never shows unfilled placeholders, asks which produce when none is named, treats today as open now only when nothing better matches, sends nearest market questions to near me, and answers near me as soon as location is allowed.

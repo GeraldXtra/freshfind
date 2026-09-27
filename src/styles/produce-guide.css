@@ -37,6 +37,11 @@
   border-color: var(--color-green-900);
 }
 
+.guide-search:focus-visible {
+  outline: 2px solid var(--color-green-900);
+  outline-offset: 2px;
+}
+
 .guide-tabs {
   display: flex;
   flex-wrap: wrap;

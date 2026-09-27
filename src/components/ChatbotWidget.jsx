@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import data from "../data/chatbot.json";
 import { answerQuestion } from "../utils/chatbot";
 import useGeolocation from "../hooks/useGeolocation";
+import { lagosNow } from "../utils/time";
 import avatar from "../assets/images/brand/chatbot-avatar.webp";
 import "../styles/chatbot.css";
 
 let nextId = 1;
+
+const nearMeIntent = data.intents.find((intent) => intent.id === "near-me");
 
 function makeMessage(from, text, link = null) {
   nextId += 1;
@@ -90,6 +93,9 @@ export default function ChatbotWidget() {
   const { status, coords, request } = useGeolocation();
   const listRef = useRef(null);
   const inputRef = useRef(null);
+  const buttonRef = useRef(null);
+  const wasOpen = useRef(false);
+  const waitingForLocation = useRef(false);
 
   useEffect(() => {
     if (listRef.current)
@@ -98,7 +104,32 @@ export default function ChatbotWidget() {
 
   useEffect(() => {
     if (open && inputRef.current) inputRef.current.focus();
+    if (!open && wasOpen.current && buttonRef.current) buttonRef.current.focus();
+    wasOpen.current = open;
   }, [open]);
+
+  useEffect(() => {
+    if (!waitingForLocation.current || typing) return;
+    if (status === "granted" && coords) {
+      waitingForLocation.current = false;
+      const answer = answerQuestion("markets near me", {
+        now: lagosNow(),
+        coords,
+      });
+      setMessages((list) => [
+        ...list,
+        makeMessage("bot", answer.text, answer.link),
+      ]);
+      setChips(answer.quickReplies || data.quickReplies);
+    }
+    if (status === "denied" || status === "unsupported") {
+      waitingForLocation.current = false;
+      setMessages((list) => [
+        ...list,
+        makeMessage("bot", nearMeIntent.denied, nearMeIntent.link),
+      ]);
+    }
+  }, [status, coords, typing]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -116,10 +147,13 @@ export default function ChatbotWidget() {
     setInput("");
     setTyping(true);
     const answer = answerQuestion(question, {
-      now: new Date(),
+      now: lagosNow(),
       coords: status === "granted" ? coords : null,
     });
-    if (answer.action === "near-me" && status !== "granted") request();
+    if (answer.action === "near-me") {
+      waitingForLocation.current = true;
+      request();
+    }
     setTimeout(() => {
       setMessages((list) => [
         ...list,
@@ -162,7 +196,12 @@ export default function ChatbotWidget() {
             </button>
           </div>
 
-          <div className="chatbot-messages" ref={listRef}>
+          <div
+            className="chatbot-messages"
+            ref={listRef}
+            role="log"
+            aria-live="polite"
+          >
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -231,6 +270,7 @@ export default function ChatbotWidget() {
       )}
 
       <button
+        ref={buttonRef}
         type="button"
         className="chatbot-button"
         onClick={() => setOpen((value) => !value)}

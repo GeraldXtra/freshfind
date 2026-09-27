@@ -35,10 +35,19 @@
   );
 }
 
-.detail-badge {
+.detail-top {
   position: absolute;
   top: var(--space-4);
   left: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.detail-badge {
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   background: var(--color-text-muted);
@@ -54,10 +63,8 @@
 }
 
 .detail-save {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
   display: inline-flex;
+  margin-left: auto;
   align-items: center;
   gap: var(--space-2);
   height: 40px;
@@ -285,17 +292,13 @@
     padding: var(--space-3);
   }
 
-  .detail-badge,
-  .detail-save {
+  .detail-top {
     top: var(--space-3);
-  }
-
-  .detail-badge {
     left: var(--space-3);
+    right: var(--space-3);
   }
 
   .detail-save {
-    right: var(--space-3);
     height: 36px;
     padding: 0 var(--space-3);
     font-size: var(--text-xs);

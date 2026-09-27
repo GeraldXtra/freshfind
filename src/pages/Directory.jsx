@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import markets from "../data/markets.json";
 import produce from "../data/produce.json";
-import { DAY_KEYS, isOpenNow } from "../utils/schedule";
+import { isOpenNow, minutesUntilOpen } from "../utils/schedule";
 import { distanceKm } from "../utils/geo";
 import useClock from "../hooks/useClock";
 import useGeolocation from "../hooks/useGeolocation";
@@ -25,13 +25,9 @@ const produceOptions = [...produce].sort((a, b) =>
   a.name.localeCompare(b.name),
 );
 
-function daysUntilOpen(schedule, now) {
-  for (let offset = 0; offset < 7; offset += 1) {
-    const key = DAY_KEYS[(now.getDay() + offset) % 7];
-    if (schedule[key]) return offset;
-  }
-  return 7;
-}
+const produceNames = Object.fromEntries(
+  produce.map((entry) => [entry.id, entry.name.toLowerCase()]),
+);
 
 function locationLabel(status) {
   if (status === "granted") return "Location on";
@@ -72,7 +68,10 @@ export default function Directory() {
     if (text) {
       const inName = market.name.toLowerCase().includes(text);
       const inArea = market.area.toLowerCase().includes(text);
-      if (!inName && !inArea) return false;
+      const inProduce = market.produce.some((id) =>
+        (produceNames[id] || "").includes(text),
+      );
+      if (!inName && !inArea && !inProduce) return false;
     }
     return true;
   });
@@ -91,8 +90,9 @@ export default function Directory() {
   if (sort === "next") {
     sorted.sort(
       (a, b) =>
-        daysUntilOpen(a.market.schedule, now) -
-        daysUntilOpen(b.market.schedule, now),
+        minutesUntilOpen(a.market.schedule, now) -
+          minutesUntilOpen(b.market.schedule, now) ||
+        a.market.name.localeCompare(b.market.name),
     );
   }
   if (sort === "distance" && hasLocation) {
@@ -198,7 +198,7 @@ export default function Directory() {
         </div>
 
         <div className="directory-results">
-          <h2 className="directory-count">
+          <h2 className="directory-count" aria-live="polite">
             {text ? `Results for "${query.trim()}": ` : ""}
             {sorted.length} {sorted.length === 1 ? "market" : "markets"}
           </h2>

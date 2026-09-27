@@ -287,7 +287,7 @@ export default function Home() {
         <div className="container">
           <div className="home-section-head">
             <div>
-              <h2>
+              <h2 aria-live="polite">
                 {hasFilters
                   ? `${matches.length} matching ${matches.length === 1 ? "market" : "markets"}`
                   : "Markets near you"}
@@ -359,7 +359,7 @@ export default function Home() {
 
           {seasonal.length === 0 ? (
             <p className="home-empty">
-              Nothing is at peak season this month. Check the Produce Guide for
+              Nothing is in season this month. Check the Produce Guide for
               what is available all year.
             </p>
           ) : (

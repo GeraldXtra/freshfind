@@ -28,7 +28,7 @@ The project follows the TechWiz 7 brief under the eGreen Basket theme. The brief
 8. About Us: mission, why FreshFind, and the team
 9. Not Found: a friendly page for wrong links
 
-Features shared across pages: a navbar with search, a bookmark count and a non functional login button as the brief requires, a floating chatbot on every page, breadcrumbs on every page except Home, a live clock, a simulated visitor counter and the footer. At phone widths the navbar collapses into a menu and the footer stacks.
+Features shared across pages: a navbar with search, a bookmark count and non functional login and sign up buttons as the brief requires, a floating chatbot on every page, breadcrumbs on every page except Home, a live clock, a simulated visitor counter and the footer. Below 1250 pixels the navbar collapses into a menu, and at phone widths the footer stacks.
 
 ### Visual design
 - Colors: cream background, deep green for headings and the footer, amber yellow for primary buttons and badges, white cards with soft borders
@@ -68,7 +68,7 @@ We also tested every page with Google Lighthouse on mobile and desktop, before a
 ## Project Installation Instructions
 
 ### Requirements
-- Node.js version 18 or newer
+- Node.js 20.19 or newer
 - npm, which comes with Node.js
 - A modern browser such as Chrome, Edge or Firefox
 

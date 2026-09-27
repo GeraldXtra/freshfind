@@ -1,3 +1,5 @@
+import { lagosNow } from './time'
+
 export const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 
 export const DAY_LABELS = {
@@ -99,18 +101,18 @@ export function hoursLabel(schedule) {
   return byHours.map((group) => `${group.ranges.join(' & ')} · ${group.hours}`).join(', ')
 }
 
-export function todayHours(schedule, now = new Date()) {
+export function todayHours(schedule, now = lagosNow()) {
   return entryFor(schedule, dayKeyOf(now))
 }
 
-export function isOpenNow(schedule, now = new Date()) {
+export function isOpenNow(schedule, now = lagosNow()) {
   const entry = todayHours(schedule, now)
   if (!entry) return false
   const minutes = minutesOfDay(now)
   return minutes >= toMinutes(entry.open) && minutes < toMinutes(entry.close)
 }
 
-export function nextOpening(schedule, now = new Date()) {
+export function nextOpening(schedule, now = lagosNow()) {
   const todayIndex = now.getDay()
   const minutes = minutesOfDay(now)
 
@@ -124,6 +126,7 @@ export function nextOpening(schedule, now = new Date()) {
       dayLabel: DAY_LABELS[dayKey],
       dayFull: DAY_FULL[dayKey],
       open: entry.open,
+      offset,
       isToday: offset === 0,
       isTomorrow: offset === 1,
     }
@@ -132,7 +135,7 @@ export function nextOpening(schedule, now = new Date()) {
   return null
 }
 
-export function openBadge(schedule, now = new Date()) {
+export function openBadge(schedule, now = lagosNow()) {
   if (isOpenNow(schedule, now)) {
     return { open: true, text: 'OPEN NOW' }
   }
@@ -145,4 +148,11 @@ export function openBadge(schedule, now = new Date()) {
   if (next.isTomorrow) text = 'OPENS TOMORROW'
 
   return { open: false, text, next }
+}
+
+export function minutesUntilOpen(schedule, now = lagosNow()) {
+  if (isOpenNow(schedule, now)) return 0
+  const next = nextOpening(schedule, now)
+  if (!next) return Infinity
+  return next.offset * 1440 + toMinutes(next.open) - minutesOfDay(now)
 }

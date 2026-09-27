@@ -3,6 +3,7 @@ import { BookmarksProvider } from "./context/BookmarksContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ChatbotWidget from "./components/ChatbotWidget";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Directory from "./pages/Directory";
 import MarketDetail from "./pages/MarketDetail";
@@ -16,6 +17,7 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   return (
     <BrowserRouter basename="/freshfind/">
+      <ScrollToTop />
       <BookmarksProvider>
         <Navbar />
         <main>

@@ -26,4 +26,4 @@
 18. Chatbot, type something random. Expected: the fallback message with suggestion chips.
 19. Contact page, allow location. Expected: the map centers on the visitor. Deny location. Expected: the Lagos map and a friendly message.
 20. Resize the window to 390px. Expected: the menu button appears, no sideways scrolling, and the footer stacks on every page.
-21. Click Login. Expected: nothing happens, by design.
+21. Click Login or Sign Up. Expected: nothing happens, by design.

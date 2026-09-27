@@ -128,6 +128,11 @@
   color: var(--color-text);
 }
 
+.home-search select:focus-visible {
+  outline: 2px solid var(--color-green-900);
+  outline-offset: 2px;
+}
+
 .home-search-button {
   display: inline-flex;
   flex-shrink: 0;

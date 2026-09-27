@@ -173,10 +173,18 @@
         "nearest",
         "around me",
         "close to me",
-        "in my area"
+        "in my area",
+        "nearest market",
+        "nearest markets",
+        "closest market",
+        "closest markets",
+        "near my location",
+        "my location",
+        "near my"
       ],
       "answer": "The closest markets to you are {markets}.",
-      "noResults": "Allow location access in your browser and I will find the markets closest to you. You can also filter the directory by area.",
+      "noResults": "I need your location for that. If your browser asks, allow location access and I will list the markets closest to you.",
+      "denied": "I could not get your location, so I cannot sort markets by distance. You can still filter the directory by area.",
       "link": { "label": "Browse by area", "to": "/directory" }
     },
     {
@@ -197,7 +205,14 @@
         "buy"
       ],
       "answer": "{produceName} is in season {season}. You can find it at {foundAt}.",
-      "link": { "label": "Open the Produce Guide", "to": "/produce" }
+      "noResults": "Which produce do you mean? Pick one below or type its name.",
+      "link": { "label": "Open the Produce Guide", "to": "/produce" },
+      "quickReplies": [
+        "Where can I buy tomatoes?",
+        "Where can I buy yam?",
+        "Where can I buy peppers?",
+        "Where can I buy plantain?"
+      ]
     },
     {
       "id": "hours",
@@ -319,7 +334,7 @@
     },
     {
       "id": "bye",
-      "keywords": ["bye", "goodbye", "see you", "later"],
+      "keywords": ["bye", "goodbye", "see you"],
       "answer": "Bye for now. Fresh all along!"
     }
   ]

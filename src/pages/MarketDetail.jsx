@@ -176,19 +176,21 @@ export default function MarketDetail() {
             alt=""
             fetchPriority="high"
           />
-          <span
-            className={badge.open ? "detail-badge is-open" : "detail-badge"}
-          >
-            {badge.text}
-          </span>
-          <button
-            type="button"
-            className={saved ? "detail-save is-saved" : "detail-save"}
-            onClick={() => toggle("market", market.id)}
-          >
-            <BookmarkIcon filled={saved} />
-            {saved ? "Saved" : "Save this market"}
-          </button>
+          <div className="detail-top">
+            <span
+              className={badge.open ? "detail-badge is-open" : "detail-badge"}
+            >
+              {badge.text}
+            </span>
+            <button
+              type="button"
+              className={saved ? "detail-save is-saved" : "detail-save"}
+              onClick={() => toggle("market", market.id)}
+            >
+              <BookmarkIcon filled={saved} />
+              {saved ? "Saved" : "Save this market"}
+            </button>
+          </div>
           <h1 className="detail-title">{market.name}</h1>
         </section>
 

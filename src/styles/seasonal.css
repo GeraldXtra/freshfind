@@ -20,10 +20,6 @@
   text-align: center;
 }
 
-.seasonal-banner-inner nav {
-  align-self: flex-start;
-}
-
 .seasonal-title {
   margin: var(--space-4) 0 0;
   font-size: 44px;

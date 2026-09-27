@@ -156,6 +156,10 @@ export default function Navbar() {
               Login
             </button>
 
+            <button type="button" className="navbar-pill navbar-signup">
+              Sign Up
+            </button>
+
             <Link to="/directory" className="navbar-pill navbar-cta">
               Find a Market
             </Link>
@@ -193,6 +197,9 @@ export default function Navbar() {
             <div className="navbar-panel-actions">
               <button type="button" className="navbar-pill navbar-login">
                 Login
+              </button>
+              <button type="button" className="navbar-pill navbar-signup">
+                Sign Up
               </button>
               <Link
                 to="/directory"

@@ -9,7 +9,7 @@ A website that helps people in Lagos find farmers markets. Where each market is,
 The site is built with React using Vite. It is a single page application: the browser loads once and React Router swaps pages in and out without reloading. App.jsx sets up the router, wraps everything in the BookmarksProvider, and renders the Navbar, the page area, the ChatbotWidget and the Footer. Every page renders inside that frame.
 
 Shared components in src/components:
-- Navbar: logo, the five links, the search button, the bookmark button with its live count, the non functional Login button the brief requires, the Find a Market button, and the collapsible menu at phone widths.
+- Navbar: logo, the five links, the search button, the bookmark button with its live count, the non functional Login and Sign Up buttons the brief requires, the Find a Market button, and the collapsible menu below 1250px.
 - Footer: brand, Explore links, Popular Markets, Contact, the live clock and the simulated visitor counter.
 - SearchOverlay: opens from the navbar search button, shows matching markets and produce as you type, and sends Enter to the Directory with the text as a q parameter.
 - ChatbotWidget: the floating assistant on every page, driven by chatbot.json through the rule engine in src/utils/chatbot.js.
@@ -61,7 +61,7 @@ If a market or produce item is ever added, it is one new record in one file and 
 - chatbot.js: the assistant's rule engine.
 
 ## Hooks and context
-- useClock ticks every second and powers the footer clock, every open badge and the season checks.
+- useClock ticks every second and powers the footer clock, every open badge and the season checks. It returns the current time in Lagos, through lagosNow in src/utils/time.js, so the badges are right for visitors in any time zone.
 - useGeolocation asks for the visitor's position and reports idle, loading, granted, denied or unsupported. It powers distance sorting, markets near you and the Contact map.
 - BookmarksContext keeps saved markets, saved produce and notes in sessionStorage under one key and shares them with the navbar badge, every BookmarkButton, the detail page save button and the Bookmarks page. useBookmarks is how a component reads it. Closing the tab clears it, which is exactly what the brief asks for.
 

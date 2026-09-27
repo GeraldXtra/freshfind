@@ -7,7 +7,7 @@ export default function LiveClock({ className }) {
 
   return (
     <span className={className}>
-      {day} · {time}
+      {day} · {time} WAT
     </span>
   )
 }
