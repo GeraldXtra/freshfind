@@ -142,6 +142,7 @@
 }
 
 .about-member {
+  position: relative;
   padding: var(--space-5) var(--space-3);
   text-align: center;
 }
@@ -155,6 +156,25 @@
   margin: 0;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
+}
+
+.about-member-social {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-green-soft);
+  color: var(--color-green-900);
+}
+
+.about-member-social:hover {
+  background: var(--color-green-900);
+  color: var(--color-surface);
 }
 
 .about-photo {

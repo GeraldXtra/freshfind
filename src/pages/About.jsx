@@ -5,24 +5,29 @@ import "../styles/about.css";
 const team = [
   {
     name: "Eberechukwu Uchechukwu Gerald",
+    shortName: "Gerald",
     role: "Team Leader and Data",
     image: "team-gerald",
     initials: "EG",
   },
   {
     name: "Chukwujekwu Chimdiuso Amanda",
+    shortName: "Amanda",
     role: "Directory and Contact",
     image: "team-amanda",
     initials: "CA",
+    instagram: "https://www.instagram.com/chimdiuso_/",
   },
   {
     name: "Ibrahim Ogunsola Kelvin",
+    shortName: "Ibrahim",
     role: "Market Detail and About",
     image: "team-ibrahim",
     initials: "IK",
   },
   {
     name: "Uyi Osakue Uhunwa",
+    shortName: "Osakue",
     role: "Produce Guide and Seasonal Picks",
     image: "team-osakue",
     initials: "UO",
@@ -81,6 +86,26 @@ function LeafIcon() {
     >
       <path d="M5 19c8 1 14-5 14-14-9 0-15 6-14 14z" />
       <path d="M5 19c3-5 7-9 12-12" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
     </svg>
   );
 }
@@ -169,6 +194,17 @@ export default function About() {
                 </div>
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
+                {member.instagram && (
+                  <a
+                    href={member.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${member.shortName} on Instagram`}
+                    className="about-member-social"
+                  >
+                    <InstagramIcon />
+                  </a>
+                )}
               </div>
             ))}
           </div>

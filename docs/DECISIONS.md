@@ -33,3 +33,5 @@
 - 2026-09-27: Open now, the badges, the Today row, the seasons and the footer clock now use Lagos time through one helper, so visitors in other time zones see the right state.
 - 2026-09-27: Every page change now scrolls to the top, so a new page never opens halfway down.
 - 2026-09-27: Fixed the chatbot so it never shows unfilled placeholders, asks which produce when none is named, treats today as open now only when nothing better matches, sends nearest market questions to near me, and answers near me as soon as location is allowed.
+- 2026-09-27: The footer clock now shows the date and seconds, and the simulated visitor counter rises slowly over time and adds one for every page load, so both are clearly live.
+- 2026-09-27: Team members can show their own social links on their About card, starting with Amanda's Instagram.
