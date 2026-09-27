@@ -144,7 +144,10 @@
         "currently open",
         "still open",
         "open at the moment",
-        "open today"
+        "open today",
+        "what's open",
+        "what is open",
+        "anything open"
       ],
       "answer": "These markets are open right now: {markets}.",
       "noResults": "No market is open at this moment. The next one to open is {nextMarket} at {nextTime}.",
